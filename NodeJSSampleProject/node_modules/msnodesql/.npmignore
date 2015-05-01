@@ -1,0 +1,12 @@
+build
+node_modules
+.node-gyp
+ipch
+*.sdf
+*.user
+*~
+.*.swp
+*.opensdf
+*.suo
+
+.DS_Store
