@@ -5,7 +5,7 @@ var fs = require('fs');
 var useTrustedConnection = false;
 var result = "";
 
-var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:csucla2015.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=meet_bhagdev;PWD=channelV1;") + "Database={AdventureWorks};";
+var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:<yourservername>.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=<yourusername>;PWD=<yourpassword>;") + "Database={<yourdatabasename>};";
 sql.open(conn_str, function (err, conn) {
     if (err) {
         console.log("Error opening the connection!");
