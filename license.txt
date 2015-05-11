@@ -1,4 +1,4 @@
-[Name of Open Source Project]
+Azure SQL Database Samples
 Copyright (c) Microsoft Corporation
 All rights reserved. 
 MIT License
