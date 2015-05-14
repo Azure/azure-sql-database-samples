@@ -1,9 +1,9 @@
 <?php
     echo "\n";
-    $serverName = "tcp:csucla2016.database.windows.net,1433";
+    $serverName = "tcp:yourserver.database.windows.net,1433";
 
-    $connectionOptions = array("Database"=>"cusclas2016",
-        "Uid"=>"meet_bhagdev", "PWD"=>"channelV1");
+    $connectionOptions = array("Database"=>"yourpassword",
+        "Uid"=>"yourusername", "PWD"=>"yourpassword");
 
     $conn = sqlsrv_connect($serverName, $connectionOptions);
 
