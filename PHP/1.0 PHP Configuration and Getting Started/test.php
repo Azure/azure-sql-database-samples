@@ -1,9 +1,9 @@
 <?php
     echo "\n";
-    $serverName = "tcp:csucla2016.database.windows.net,1433";
+    $serverName = "tcp:yourserver.database.windows.net,1433";
 
-    $connectionOptions = array("Database"=>"cusclas2016",
-        "Uid"=>"meet_bhagdev", "PWD"=>"channelV1");
+    $connectionOptions = array("Database"=>"yourdatabase",
+        "Uid"=>"yourusername", "PWD"=>"yourpassword");
 
     $conn = sqlsrv_connect($serverName, $connectionOptions);
 
@@ -28,7 +28,7 @@
 
         sqlsrv_free_stmt($getProducts);
 
-         $tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Sessddas 102w201', 'SQLEsdas001', 0, 0, getdate())";
+         $tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL New', 'SQL New Express', 0, 0, getdate())";
 
 
         $insertReview = sqlsrv_query($conn, $tsql);
