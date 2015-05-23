@@ -28,7 +28,7 @@
 
         sqlsrv_free_stmt($getProducts);
 
-         $tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Sessddas 102w201', 'SQLEsdas001', 0, 0, getdate())";
+         $tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server 15', 'SQL Server 12', 0, 0, getdate())";
 
 
         $insertReview = sqlsrv_query($conn, $tsql);
@@ -43,7 +43,7 @@
         sqlsrv_free_stmt($insertReview);
 
         $tsql = "DELETE FROM [SalesLT].[Product] WHERE Name=?";
-        $params = array("SQL Sessddas 102w201");
+        $params = array("SQL Server 15");
 
         $deleteReview = sqlsrv_prepare($conn, $tsql, $params);
         if($deleteReview == FALSE)
@@ -57,18 +57,7 @@
             echo($row['ProductID']);
         }
         sqlsrv_free_stmt($deleteReview);
-         $tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Sessddas 102w201', 'SQLEsdas001', 0, 0, getdate())";
-
-
-        $insertReview = sqlsrv_query($conn, $tsql);
-        if($insertReview == FALSE)
-            die(FormatErrors( sqlsrv_errors()));
-
-
-        while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
-        {   
-            echo($row['ProductID']);
-        }
-        sqlsrv_free_stmt($insertReview);
+       
 
 ?>
+
