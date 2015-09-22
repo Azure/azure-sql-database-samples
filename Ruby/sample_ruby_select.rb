@@ -2,18 +2,15 @@
 require 'tiny_tds' 
 
 #Connect to your database. 
-#Replace server name, username, password, and database name with your credentials 
-client = TinyTds::Client.new username: 'username@servername', password: 'password', 
-host: 'servername.database.windows.net', port: 1433, 
-database: 'databasename', azure:true 
+#Replace server name, username, and password with your credentials 
+client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+host: 'yourserver.database.windows.net', port: 1433, 
+database: 'AdventureWorks', azure:true 
 
 #Execute a simple select statement. 
-#Replace schema name and table name with your own
-results = client.execute("select top 10 * from [schema].[tablename]") 
+results = client.execute("select * from SalesLT.Product") 
 
 #Print results.
 results.each do |row| 
-
 puts row 
-
 end 
