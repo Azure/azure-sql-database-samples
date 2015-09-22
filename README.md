@@ -7,8 +7,10 @@ Here we will cover samples on
 
 2. Node.js
 
-3. JDBC
-
 4. Python
 
-5. Ruby
+5. Django
+
+6. Ruby
+
+7. Ruby on Rails
