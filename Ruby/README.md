@@ -35,7 +35,7 @@ Next, install TinyTDS.
 
 The Ruby sample relies on the AdventureWorks sample database. If you do not already have AdventureWorks, you can see how to create it at the following topic: [Create your first Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/)
 
-##Using Tiny_TDS with Azure
+##Using TinyTDS with Azure
 
 It is recommend the following settings when using TinyTDS with Azure.
 
