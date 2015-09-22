@@ -1,4 +1,4 @@
-#using the pymssql driver
+#Using the pymssql driver
 import pymssql
 
 #Connect to your database. 
