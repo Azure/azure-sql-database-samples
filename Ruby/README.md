@@ -48,7 +48,7 @@ It is recommend the following settings when using TinyTDS with Azure.
 	SET ANSI_WARNINGS ON
 	SET CONCAT_NULL_YIELDS_NULL ON
 	
-This can be done by running the following code:
+This can be done by running the following code prior to executing queries:
 
 	result = client.execute("SET ANSI_NULLS ON")
 	result = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
