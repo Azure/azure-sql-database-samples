@@ -1,4 +1,4 @@
-# azure-sql-database-samples
+# Azure SQL Database Code Samples
 Azure SQL Database Samples and Reference Implementation Repository
 
 Here we will cover samples on 
