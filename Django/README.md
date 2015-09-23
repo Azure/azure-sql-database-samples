@@ -35,7 +35,7 @@
 4. Run setup.py
 
 
-        python setup.py servername datbasename username password`
+        python setup.py servername datbasename username password
 
 
 
