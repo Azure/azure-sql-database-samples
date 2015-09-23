@@ -30,7 +30,7 @@
         git clone https://github.com/Azure/azure-sql-database-samples.git
 
 
-3. cd into the django folder
+3. cd into the azure-sql-database-samples folder and then cd into the django folder
 
 
 4. Run setup.py
