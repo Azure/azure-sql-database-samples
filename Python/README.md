@@ -1,6 +1,6 @@
 # Connect to SQL Database by using Python on Ubuntu Linux
 
-[Python ode sample] (sample_python.py) that runs on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.
+[Python code sample] (sample_python.py) that runs on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.
 
 
 ## Requirements
