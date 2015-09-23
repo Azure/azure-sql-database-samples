@@ -1,11 +1,22 @@
-
-
+#For SQL Server, fill in the following fields. 
+#Replace server name, username, password, and database name with your credentials 
 development:
- adapter: sqlserver
- mode: dblib
- host: yourservername.database.windows.net
- database: yourdatabasename
- username: yourusername@yourservername
- password: password
- timeout: 5000
- azure: true
+  adapter: sqlserver
+  mode: dblib
+  host: servername.database.windows.net
+  port: 1433
+  database: databasename
+  username: username@servername
+  password: password
+  timeout: 5000
+  azure: true
+
+#PostgreSQL is set up in a similar way
+#Can be removed if not using Postgres for testing
+test: 
+ adapter: postgresql
+ encoding: unicode
+ database: postgres_databasename
+ pool: 5
+ username: postgres_username
+ password: postgres_password
