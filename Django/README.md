@@ -39,7 +39,7 @@ d) django-pymssql
 
 	   python setup.py servername datbasename username password
 
-	   
+
 5. Edit settings.py with your database settings. Replace the sqllite settings to this one
 	
 
