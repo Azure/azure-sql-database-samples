@@ -32,32 +32,39 @@ Next, install TinyTDS.
     gem install tiny_tds
   
 Install Ruby on Rails and check the version
+
     gem install rails 4.2.4 
     rails -v
 
 Install activerecord-sqlserver-adapter
+
     gem install activerecord-sqlserver-adapter
 
 ## Create a new application
 
-Begin a new project by running the following command: 
+Begin a new project by running the following command:
+
     rails new test_application
 
 Change directories into the folder
+
     cd test_application
 
 ## Connect to Azure SQL Database
 Add TinyTDS and activerecord-sqlserver-adapter to the Gemfile
+
     gem 'tiny_tds'
     gem 'activerecord-sqlserver-adapter'
 
 Install the gems in the Gemfile
+
     bundle install
   
 Update the database.yml file (/test_application/config/database.yml)
-    development:  
+
+    development:
      adapter: sqlserver
-     mode: dblib     
+     mode: dblib 
      host: yourservername.database.windows.net
      port: 1433
      database: yourdatabasename
@@ -67,6 +74,7 @@ Update the database.yml file (/test_application/config/database.yml)
      azure: true
 
 Check that the connection is working by migrating to the database. If there are no errors, the database is connected properly
+    
     rake db:migrate
 
 ##Using TinyTDS with Azure
@@ -92,5 +100,3 @@ This can be done by running the following code prior to executing queries:
 	result = client.execute("SET QUOTED_IDENTIFIER ON")
 	result = client.execute("SET ANSI_WARNINGS ON")
 	result = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
-
-
