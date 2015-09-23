@@ -2,7 +2,8 @@
 import pymssql
 
 #Connect to your database. 
-#Replace server name, username, and password with your credentials    
+#Replace server name, username, and password with your credentials   
+#Code is dependent on AdventureWorks database
 conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', 
 	password='yourpassword', database='AdventureWorks')
 cursor = conn.cursor()
