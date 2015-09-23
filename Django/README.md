@@ -4,25 +4,25 @@ s#Instructions
 
 a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
 
-  	 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
 
-
-   	brew install FreeTDSl
+        brew install FreeTDS
+        
 
 b) Django
 	
-	sudo pip install django==1.7
+        sudo pip install django==1.7
 
 c) pymssql
 
-	sudo pip install pymssql
+        sudo pip install pymssql
 
 d) django-pymssql
 
 
-	sudo pip install django-pymsqsl	
+        sudo pip install django-pymsqsl	
 
 
 2. Git clone this project
@@ -42,7 +42,7 @@ d) django-pymssql
 
 5. Edit settings.py with your database settings. Replace the sqllite settings to this one
 
-	DATABASES = {
+        DATABASES = {
 	    'default': {
 	        'ENGINE': 'sqlserver_pymssql',
 	        'HOST': 'csucla2015.database.windows.net',
