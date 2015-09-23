@@ -1,0 +1,11 @@
+
+
+development:
+ adapter: sqlserver
+ mode: dblib
+ host: andrelasqldbserver.database.windows.net
+ database: SampleTest
+ username: andrela@andrelasqldbserver
+ password: xASeD8n005
+ timeout: 5000
+ azure: true
