@@ -1,6 +1,6 @@
 # Connect to SQL Database by using Java with JDBC on Windows
 
-Java code sample that you can use to connect to Azure SQL Database. The Java sample relies on the Java Development Kit (JDK) version 1.8. The sample connects to an Azure SQL Database by using the JDBC driver.
+[Java code sample] (sample_java.java) that you can use to connect to Azure SQL Database. The Java sample relies on the Java Development Kit (JDK) version 1.8. The sample connects to an Azure SQL Database by using the JDBC driver.
 
 
 ## Requirements
