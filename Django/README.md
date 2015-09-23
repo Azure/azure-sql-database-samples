@@ -1,9 +1,6 @@
 #Instructions
 
-<<<<<<< HEAD
-1.  
-2.
-=======
+
 1. Install FreeTDS, Django 1.7, pymssql, and django-pymsqsl
 
 	a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
@@ -68,4 +65,3 @@
 7. Run your django app
 
         python manage.py runserver
->>>>>>> origin/master
