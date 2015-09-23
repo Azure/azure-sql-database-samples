@@ -29,18 +29,20 @@ d) django-pymssql
 4. Run setup.py
    python setup.py servername datbasename username password
 5. Edit settings.py with your database settings. Replace the sqllite settings to this one
-	DATABASES = {
-    'default': {
-        'ENGINE': 'sqlserver_pymssql',
-        'HOST': 'csucla2015.database.windows.net',
-        'NAME': 'djangodemoui',
-        'USER': 'meet_bhagdev@csucla2015',
-        'PASSWORD': 'avengersA1',
-        'OPTIONS': {
-            # ...
-        },
-    },
-}
+	
+
+		DATABASES = {
+	    'default': {
+	        'ENGINE': 'sqlserver_pymssql',
+	        'HOST': 'csucla2015.database.windows.net',
+	        'NAME': 'djangodemoui',
+	        'USER': 'meet_bhagdev@csucla2015',
+	        'PASSWORD': 'avengersA1',
+	        'OPTIONS': {
+	            # ...
+	        },
+	    },
+	}
 
 
 6. Run Django migrations
