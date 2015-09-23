@@ -27,7 +27,7 @@ d) django-pymssql
 
 2. Git clone this project
 
-	`git clone https://github.com/Azure/azure-sql-database-samples.git`
+`git clone https://github.com/Azure/azure-sql-database-samples.git`
 
 
 3. cd into the django folder
@@ -35,13 +35,13 @@ d) django-pymssql
 
 4. Run setup.py
 
-	`python setup.py servername datbasename username password`
+`python setup.py servername datbasename username password`
 
 
 5. Edit settings.py with your database settings. Replace the sqllite settings to this one
 	
 
-	`DATABASES = {
+	DATABASES = {
 	    'default': {
 	        'ENGINE': 'sqlserver_pymssql',
 	        'HOST': 'csucla2015.database.windows.net',
@@ -52,14 +52,14 @@ d) django-pymssql
 	            # ...
 	        	},
 	    	},
-	}`
+	}
 
 
 6. Run Django migrations
 	From your project folder where manage.py is located run the following:
 
-		python manage.py migrate
+	python manage.py migrate
 
 7. Run your django app
 
-		python manage.py runserver
+	python manage.py runserver
