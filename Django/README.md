@@ -2,14 +2,14 @@
 
 1. Install FreeTDS, Django 1.7, pymssql, and django-pymsqsl
 
-	a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
+a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
 
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  	 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
+FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
 
 
-   brew install FreeTDSl
+   	brew install FreeTDSl
 
 b) Django
 	
@@ -42,14 +42,14 @@ d) django-pymssql
 	            # ...
 	        },
 	    },
-	}
+		}
 
 
 6. Run Django migrations
 	From your project folder where manage.py is located run the following:
 
-	python manage.py migrate
+		python manage.py migrate
 
 7. Run your django app
 
-	pythong manage.py runserver
+		python manage.py runserver
