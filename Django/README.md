@@ -1,4 +1,4 @@
-s#Instructions
+#Instructions
 
 1. Install FreeTDS, Django 1.7, pymssql, and django-pymsqsl
 
