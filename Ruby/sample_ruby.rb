@@ -3,6 +3,7 @@ require 'tiny_tds'
 
 #Connect to your database. 
 #Replace server name, username, and password with your credentials 
+#Code is dependent on AdventureWorks database
 client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
 host: 'yourserver.database.windows.net', port: 1433, 
 database: 'AdventureWorks', azure:true 
