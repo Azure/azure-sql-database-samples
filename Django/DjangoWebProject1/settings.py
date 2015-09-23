@@ -22,7 +22,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'sqlserver_pymssql',
         'HOST': 'csucla2015.database.windows.net',
-        'NAME': 'test10',
+        'NAME': 'djangodemoui',
         'USER': 'meet_bhagdev@csucla2015',
         'PASSWORD': 'avengersA1',
         'OPTIONS': {
