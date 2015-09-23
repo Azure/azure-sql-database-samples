@@ -10,9 +10,8 @@ FreeTDS: Run the following command from your terminal. This will download FreeTD
 
         brew install FreeTDS
         
-
 b) Django
-	
+
         sudo pip install django==1.7
 
 c) pymssql
@@ -21,11 +20,11 @@ c) pymssql
 
 d) django-pymssql
 
-
         sudo pip install django-pymsqsl	
 
 
 2. Git clone this project
+
 
         git clone https://github.com/Azure/azure-sql-database-samples.git
 
@@ -36,13 +35,14 @@ d) django-pymssql
 4. Run setup.py
 
 
-         python setup.py servername datbasename username password`
+        python setup.py servername datbasename username password`
 
 
 
 5. Edit settings.py with your database settings. Replace the sqllite settings to this one
-
-        DATABASES = {
+        
+        
+         DATABASES = {
 	    'default': {
 	        'ENGINE': 'sqlserver_pymssql',
 	        'HOST': 'csucla2015.database.windows.net',
