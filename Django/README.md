@@ -40,7 +40,7 @@
 
 
 
-5. Edit settings.py with your database settings. Replace the sqllite settings to this one
+5. Edit settings.py with your database settings. Make sure you change your credentials.
         
         
          DATABASES = {
@@ -58,7 +58,8 @@
 
 
 6. Run Django migrations
-	From your project folder where manage.py is located run the following:
+
+<br>From your project folder where manage.py is located run the following:
 
         python manage.py migrate
 
