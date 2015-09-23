@@ -61,6 +61,7 @@
 
 <br>From your project folder where manage.py is located run the following:
 
+
         python manage.py migrate
 
 7. Run your django app
