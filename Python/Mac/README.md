@@ -1,7 +1,7 @@
 # Connect to SQL Database by using Python on Mac OS
 
 
-This topic presents a code sample written in Python. The sample runs on a Mac computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
+[Python code sample] (sample_python_mac.py) that runs on a Mac computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
 
 
 ## Requirements
