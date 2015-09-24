@@ -1,6 +1,6 @@
 # Connect to SQL Database by using Ruby on Ubuntu Linux
 
-Ruby code sample that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database database.
+[Ruby code sample] (sample_ruby_linux.rb) that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database database.
 
 ## Install the required modules
 
