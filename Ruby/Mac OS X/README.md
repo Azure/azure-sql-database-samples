@@ -1,6 +1,6 @@
 # Connect to SQL Database by using Ruby on Mac OS X (Yosemite)
 
-Ruby code sample (sample_ruby_mac.rb) that runs on Mac computer running Yosemite to connect to an Azure SQL Database database.
+[Ruby code sample] (sample_ruby_mac.rb) that runs on Mac computer running Yosemite to connect to an Azure SQL Database database.
 
 ## Install the required modules
 
