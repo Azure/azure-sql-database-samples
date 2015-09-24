@@ -1,7 +1,7 @@
 # Connect to SQL Database by using Node.js with Tedious on Ubuntu Linux
 
 
-This topic presents a Node.js code sample that runs on Ubuntu Linux. The sample connects to Azure SQL Database by using the Tedious driver.
+[Node.js code sample] (node.js-sample-linux.js) that runs on Ubuntu Linux. The sample connects to Azure SQL Database by using the Tedious driver.
 
 
 ## Required software items
