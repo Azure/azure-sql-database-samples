@@ -33,10 +33,12 @@
 3. cd into the azure-sql-database-samples folder and then cd into the django folder
 
 
-4. Run setup.py
+4. Run setup.py. 
 
 
-        python setup.py servername datbasename username password
+        python setup.py servername datbasename username password -> example: python setup.py csucla2015 djangodemoui meet_bhagdev avengersA1
+        
+        
 
 
 
