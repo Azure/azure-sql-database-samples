@@ -21,10 +21,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'sqlserver_pymssql',
-        'HOST': 'csucla2015.database.windows.net',
-        'NAME': 'djangodemoui',
-        'USER': 'meet_bhagdev@csucla2015',
-        'PASSWORD': 'avengersA1',
+        'HOST': 'servername.database.windows.net',
+        'NAME': 'mydatabase',
+        'USER': 'myusername@servername',
+        'PASSWORD': 'password',
         'OPTIONS': {
             # ...
         },
