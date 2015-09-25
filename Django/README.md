@@ -36,7 +36,9 @@
 4. Run setup.py. 
 
 
-        python setup.py servername datbasename username password -> example: python setup.py csucla2015.database.windows.net djangodemoui meet_bhagdev avengersA1
+        python setup.py servername datbasename username password
+        
+example: python setup.py csucla2015.database.windows.net djangodemoui meet_bhagdev avengersA1
         
         
 
