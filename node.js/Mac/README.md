@@ -4,7 +4,7 @@
 
 
 
-This topic presents a Node.js code sample that runs on Mac OS X. The sample connects to Azure SQL Database by using the Tedious driver.
+[Node.js code sample] (sample-node.js-mac.js) that runs on Mac OS X. The sample connects to Azure SQL Database by using the Tedious driver.
 
 
 ## Required software items
@@ -31,4 +31,4 @@ After your machine is configured with **node** and **npm**, navigate to a direct
 ### Create an AdventureWorks database
 
 
-The code sample in this topic expects an **AdventureWorks** test database. If you do not already have one, see [Get started with SQL Database](sql-database-get-started.md). It is important that you follow the guide to create an **AdventureWorks database template**. The examples shown below work only with the **AdventureWorks schema**. 
+The code sample in this topic expects an **AdventureWorks** test database. If you do not already have one, see [Get started with SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/). It is important that you follow the guide to create an **AdventureWorks database template**. The examples shown below work only with the **AdventureWorks schema**. 
