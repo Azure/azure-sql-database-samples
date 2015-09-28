@@ -5,25 +5,25 @@
 ## Install the required modules
 
 Open your terminal and install FreeTDS if you do not have it on your machine.
-	
-    sudo apt-get --assume-yes update 
+
+    sudo apt-get --assume-yes update
     sudo apt-get --assume-yes install freetds-dev freetds-bin
 
 After your machine is configured with FreeTDS, install Ruby if you do not already have it on your machine.
-    
-    sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev 
+
+    sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
     curl -L https://get.rvm.io | bash -s stable
 
 If you have any issues with signatures, run the following command.
 
-    command curl -sSL https://rvm.io/mpapis.asc | gpg --import - 
+    command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 
-If there are no issues with signatures, run the following commands.  
+If there are no issues with signatures, run the following commands.
 
-    source ~/.rvm/scripts/rvm 
-    rvm install 2.1.2 
-    rvm use 2.1.2 --default 
-    ruby -v 
+    source ~/.rvm/scripts/rvm
+    rvm install 2.1.2
+    rvm use 2.1.2 --default
+    ruby -v
 
 Ensure that you are running version 2.1.2 or the Ruby VM.
 
@@ -47,7 +47,7 @@ It is recommend the following settings when using TinyTDS with Azure.
 	SET QUOTED_IDENTIFIER ON
 	SET ANSI_WARNINGS ON
 	SET CONCAT_NULL_YIELDS_NULL ON
-	
+
 This can be done by running the following code prior to executing queries:
 
 	result = client.execute("SET ANSI_NULLS ON")
