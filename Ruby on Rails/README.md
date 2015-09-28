@@ -38,7 +38,7 @@ Install activerecord-sqlserver-adapter
 
     gem install activerecord-sqlserver-adapter
 
-## Git clon this project 
+## Git clone this project 
 
     git clone https://github.com/Azure/azure-sql-database-samples.git
 
