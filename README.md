@@ -5,7 +5,7 @@ Here we will cover samples for:
 
 1. [PHP](https://github.com/Azure/azure-sql-database-samples/tree/master/PHP)
 
-2. [Node.js](https://github.com/Azure/azure-sql-database-samples/tree/master/node.js3)
+2. [Node.js](https://github.com/Azure/azure-sql-database-samples/tree/master/node.js)
 
 4. [Python](https://github.com/Azure/azure-sql-database-samples/tree/master/Python)
 
