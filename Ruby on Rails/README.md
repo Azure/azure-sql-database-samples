@@ -3,7 +3,6 @@
 ## Install the required modules
 
 Open your terminal and install FreeTDS if you do not have it on your machine.
-	
     sudo apt-get --assume-yes update 
     sudo apt-get --assume-yes install freetds-dev freetds-bin
 
