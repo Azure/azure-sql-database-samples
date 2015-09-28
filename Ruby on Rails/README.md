@@ -61,7 +61,7 @@ Check that the connection is working by migrating to the database. If there are 
     
     rake db:migrate
 
-##Using TinyTDS with Azure
+##Notes for using TinyTDS with Azure
 
 It is recommend the following settings when using TinyTDS with Azure.
 
