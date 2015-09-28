@@ -1,7 +1,7 @@
 # Azure SQL Database Code Samples
 Azure SQL Database Samples and Reference Implementation Repository
 
-Here we will cover samples on 
+Here we will cover samples for:
 
 1. PHP
 
@@ -15,4 +15,6 @@ Here we will cover samples on
 
 7. Ruby on Rails
 
-8. Java 
+8. Java
+
+9. C#

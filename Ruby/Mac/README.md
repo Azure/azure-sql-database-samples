@@ -6,7 +6,7 @@
 
 Open your terminal and install the following:
 
-**1) Homebrew**: Run the following command from your terminal. This will download the Homebrew package manager on your machine. 
+**1) Homebrew**: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -14,7 +14,7 @@ Open your terminal and install the following:
 
     brew install FreeTDS
 
-**3) TinyTDS:** Run the following command from your terminal. This will install TinyTDS on your machine. 
+**3) TinyTDS:** Run the following command from your terminal. This will install TinyTDS on your machine.
 
     sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
 
@@ -34,7 +34,7 @@ It is recommend the following settings when using TinyTDS with Azure.
 	SET QUOTED_IDENTIFIER ON
 	SET ANSI_WARNINGS ON
 	SET CONCAT_NULL_YIELDS_NULL ON
-	
+
 This can be done by running the following code prior to executing queries:
 
 	result = client.execute("SET ANSI_NULLS ON")
