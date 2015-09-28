@@ -1,6 +1,4 @@
-# Connect to SQL Database by using Ruby on Rails on Ubuntu Linux
-
-Rails code sample that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database database.
+# Ruby on Rails - Sample Application
 
 ## Install the required modules
 
@@ -40,25 +38,11 @@ Install activerecord-sqlserver-adapter
 
     gem install activerecord-sqlserver-adapter
 
-## Create a new application
+## Git clon this project 
 
-Begin a new project by running the following command:
-
-    rails new test_application
-
-Change directories into the folder
-
-    cd test_application
+    git clone https://github.com/Azure/azure-sql-database-samples.git
 
 ## Connect to Azure SQL Database
-Add TinyTDS and activerecord-sqlserver-adapter to the Gemfile
-
-    gem 'tiny_tds'
-    gem 'activerecord-sqlserver-adapter'
-
-Install the gems in the Gemfile
-
-    bundle install
   
 Update the database.yml file (/test_application/config/database.yml)
 
