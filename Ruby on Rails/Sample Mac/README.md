@@ -1,3 +1,5 @@
+# Ruby on Rails - Sample Application on Mac
+
 ##Install Homebrew
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)“
 
