@@ -4,10 +4,10 @@
 
 1. Install SQL Server Native client and SQL Server Management Studio
 
-	a) Downlowd SQL Server Native client from the [here]() if you are on a x86 machine and [here]() if you are on a x64 machine.
+	a) Downlowd SQL Server Native client from the [here](http://go.microsoft.com/fwlink/?LinkID=239647&clcid=0x409) if you are on a x86 machine and [here](http://go.microsoft.com/fwlink/?LinkID=239648&clcid=0x409) if you are on a x64 machine.
 
 
-	b) Download SQL Server Management Studio from [here]()      
+	b) Download SQL Server Management Studio from [here](https://msdn.microsoft.com/en-us/library/mt238290.aspx)      
 		
 
 	d) Install the SQL Server - Azure SQL DB adapter
