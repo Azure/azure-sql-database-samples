@@ -13,15 +13,18 @@
 	brew install unixodbc
 	brew install freetds --with-unixodbc        
 	
-	b) Configure odbcinst.ini
+	b) Configure odbcinst.ini.  
+	
+		open /usr/local/etc/odbcinst.ini	
 
+	Copy this and paste it in odbcinst.ini.
+	
         [FreeTDS]
 	Description = TD Driver (MSSQL)
 	Driver = /usr/local/lib/libtdsodbc.so
 	Setup = /usr/local/lib/libtdsodbc.so
 	FileUsage = 1
 	
-	Copy this and paste it in odbcinst.ini
 
 	c) Install the SQL Server - Azure SQL DB adapter
 
