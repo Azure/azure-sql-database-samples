@@ -1,7 +1,8 @@
 #Instructions
 
 
-1. Install FreeTDS, Django 1.7, pymssql, and django-pymsqsl
+
+1. Install FreeTDS and unixODBC
 
 	a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
 
@@ -9,19 +10,22 @@
 
 	FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
 
-        brew install FreeTDS
-        
-	b) Django
+	brew install unixodbc
+	brew install freetds --with-unixodbc        
+	
+	b) Configure odbcinst.ini
 
-        sudo pip install django==1.7
+        [FreeTDS]
+	Description = TD Driver (MSSQL)
+	Driver = /usr/local/lib/libtdsodbc.so
+	Setup = /usr/local/lib/libtdsodbc.so
+	FileUsage = 1
+	
+	Copy this and paste it in odbcinst.ini
 
-	c) pymssql
+	c) Install the SQL Server - Azure SQL DB adapter
 
-        sudo pip install pymssql
-
-	d) django-pymssql
-
-        sudo pip install django-pymsqsl	
+        sudo pip install django-pyodbc-azure
 
 
 2. Git clone this project
@@ -30,7 +34,7 @@
         git clone https://github.com/Azure/azure-sql-database-samples.git
 
 
-3. cd into the azure-sql-database-samples folder and then cd into the django folder
+3. cd into the azure-sql-database-samples/Django/Django-pyodbc-azure folder
 
 
 4. Run setup.py. example: python setup.py csucla2015.database.windows.net djangodemoui meet_bhagdev avengersA1
@@ -44,17 +48,20 @@
         
         
          DATABASES = {
-	    'default': {
-	        'ENGINE': 'sqlserver_pymssql',
-	        'HOST': 'csucla2015.database.windows.net',
-	        'NAME': 'djangodemoui',
-	        'USER': 'meet_bhagdev@csucla2015',
-	        'PASSWORD': 'avengersA1',
-	        'OPTIONS': {
-	            # ...
-        		   },
-	    		},
-		    }
+    	'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': databasename',
+        'USER': ‘username@servername',
+        'PASSWORD': ‘password',
+        'HOST': ‘servername.database.windows.net',
+        'PORT': '1433',
+        'OPTIONS': {
+            'host_is_server': True,
+            'driver': 'FreeTDS'
+        	    },
+		},
+	}
+
 
 
 6. Run Django migrations
@@ -65,3 +72,9 @@
 7. Run your django app
 
         python manage.py runserver
+
+
+
+	
+
+
