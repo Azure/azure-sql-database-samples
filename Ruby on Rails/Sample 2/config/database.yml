@@ -12,11 +12,11 @@ default: &default
 development:
   adapter: sqlserver
   mode: dblib
-  host: andrelasqldbserver.database.windows.net
+  host: servername.database.windows.net
   port: 1433
-  database: RubyTest3
-  username: andrela@andrelasqldbserver
-  password: Azuresqldb123
+  database: databasename
+  username: username@servername
+  password: password
   timeout: 5000
   azure: true
 
