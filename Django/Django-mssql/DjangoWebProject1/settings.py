@@ -20,11 +20,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'NAME': 'djangodatacamp',
+        'NAME': 'yourdatabase',
         'ENGINE': 'sqlserver_ado',
-        'HOST': 'csucla2015.database.windows.net',
-        'USER': 'meet_bhagdev',
-        'PASSWORD': 'avengersA1',
+        'HOST': 'yourserver.database.windows.net',
+        'USER': 'yourusername',
+        'PASSWORD': 'yourpassword',
         'OPTIONS': {
             'provider' : 'SQLOLEDB'
         }
