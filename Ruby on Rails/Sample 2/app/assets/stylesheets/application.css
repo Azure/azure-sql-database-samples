@@ -1,0 +1,330 @@
+﻿
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+
+/*=======================================
+    GENERAL STYLES
+==================================================*/
+
+body {
+          font-family:'Open Sans', sans-serif;
+    font-size:14px;
+    background-color:#ECECEC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Open Sans', sans-serif;
+}
+
+h1 {
+    line-height:50px;
+    font-weight:900;
+    font-size:40px;
+    padding:50px 20px 5px 20px;
+    text-transform:uppercase;
+    color:rgba(0, 121, 138, 1);
+}
+
+
+.pad-adjust {
+    padding-top: 5px; 
+    padding-bottom: 5px;
+}
+
+.text-center {
+    text-align:center;
+}
+
+h2 {
+    line-height:50px;
+}
+h3 {
+    line-height:30px;
+    padding:5px;
+}
+h4 {
+   padding-top: 5px;
+line-height: 30px;
+padding-bottom: 0px;
+font-size: 20px;
+font-weight: 900;
+}
+
+p {
+    font-weight:300;
+    line-height:30px;
+}
+
+.space-free {
+    height:100px;
+}
+
+.g-pad-bottom {
+    padding-bottom:40px;
+}
+
+section {
+    padding-top:40px;
+    margin-top:50px;
+}
+
+.c-sts {
+   background-color:#d9534f;
+   color:#fff;
+}
+.form-control {
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.pad-top {
+ padding-top:20px;
+}
+.icon-round {
+margin-top: 30px;
+font-size: 60px;
+height: 128px;
+width: 128px;
+line-height: 130px;
+color: #fff;
+margin-right: 10px;
+text-align: center;
+display: inline-block;
+border-radius: 100%;
+margin-bottom: 10px;
+}
+.bk-color-red {
+    background-color:#ff0000;
+}
+
+.bk-color-green {
+    background-color:#07BB00;
+}
+
+.bk-color-light-blue {
+    background-color:#BB00BB;
+}
+
+.bk-color-blue {
+    background-color:#0052FF;
+}
+.bk-color-brown {
+    background-color:#EB8F2D;
+}
+.bk-color-black {
+   background-color:#000000;
+}
+
+table, td, th {
+    border: 1px solid teal;
+}
+
+th {
+    background-color: teal;
+    color: white;
+}
+/*=======================================
+    BOOTSTRAP STYLES
+==================================================*/
+
+.panel-heading {
+    font-size:25px;
+    font-weight:900;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+-webkit-border-top-left-radius: 0px;
+-moz-border-top-left-radius: 0px;
+-webkit-border-top-right-radius: 0px;
+-moz-border-top-right-radius: 0px;
+}
+.btn-lg, .btn-group-lg > .btn {
+border-radius: 0px; 
+
+}
+
+
+/*=======================================
+    HOME SECTION STYLES
+==================================================*/
+
+
+.head-btn-one {
+    background-color: rgba(184, 64, 252, 1);
+     border: 0px solid #fff;
+
+}
+
+#home-sec {
+    padding-top:100px;
+    background: url(../img/1.jpg) no-repeat 50% 50%;
+background-attachment: fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+width: 100%;
+display: block;
+height: auto;
+   min-height:650px;
+    color:#fff;
+}
+.head-main {
+    font-size:65px ;
+    font-weight:900;
+    
+}
+
+
+/* ===========================================================
+   NAVBAR CHANGES   
+   ============================================================*/
+.navbar {
+	font-size: 14px;
+}
+
+.navbar-inverse {
+	background: #000000;
+
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+	background: #ffffff;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #ffffff;
+	font-weight: bolder;
+	font-size: 25px;
+    font-weight:900;
+	letter-spacing: 2px;
+}
+.navbar-inverse :hover .navbar-brand:hover {
+	color: #ffffff;	
+}
+.navbar-inverse .navbar-nav > li > a {
+color: #FFFFFF;
+}
+
+
+/*=======================================
+    PRICE SECTION STYLES
+==================================================*/
+
+.plan {
+    background: #fff;
+    padding: 0 0 15px 0;
+    margin: 30px 0px;
+    list-style: none;
+    text-align: center;
+  
+}
+
+
+
+.plan li {
+ padding: 15px 0px;
+color: #000000;
+font-size: 15px;
+}
+
+.plan li.plan-head {
+   padding: 15px 0px;
+color: #FFFFFF;
+line-height: 20px;
+font-size: 20px;
+font-weight: 600;
+border: none;
+   }
+
+.plan li.main-price {
+padding: 15px 0px;
+background-color: rgba(127, 115, 177, 1);
+color: #fff;
+border: none;
+font-weight: 900;
+font-size: 30px;
+}
+
+
+/*=======================================
+    STATS SECTION STYLES
+==================================================*/
+
+#sts-img {
+     padding-bottom:50px;
+    background: url(../img/1.jpg) no-repeat 50% 50%;
+background-attachment: fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+width: 100%;
+display: block;
+height: auto;
+   min-height:200px;
+    color:#fff;
+}
+.stats-div {
+    text-align:center;
+    width: 100%;
+}
+
+.stats-div > h3 {
+    font-size:40px;
+    font-weight:900;
+}
+
+
+/*=======================================
+    CONTACT STYLES
+==================================================*/
+.cnt {
+width: 100%;
+min-height: 350px;
+border: 1px solid #e1e1e1;
+}
+.add {
+    font-size:20px;
+    font-weight:800;
+    padding:30px;
+}
+/*=======================================
+    FOOTER STYLES
+==================================================*/
+
+
+#footer {
+    background-color:#000;
+    color:#fff;
+    padding:20px 50px 20px 50px;
+    text-align:right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

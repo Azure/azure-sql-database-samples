@@ -1,0 +1,888 @@
+  [1m[36m (108.5ms)[0m  [1mCREATE TABLE [schema_migrations] ([version] nvarchar(4000) NOT NULL) [0m
+  [1m[35m (100.9ms)[0m  EXEC sp_executesql N'EXEC sp_helpindex N''schema_migrations'''
+  [1m[36m (106.4ms)[0m  [1mCREATE UNIQUE INDEX [unique_schema_migrations] ON [schema_migrations] ([version])[0m
+  [1m[35mActiveRecord::SchemaMigration Load (101.0ms)[0m  EXEC sp_executesql N'SELECT [schema_migrations].* FROM [schema_migrations]'
+Migrating to CreateUsers (20151012233146)
+  [1m[36mSQL (100.2ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35m (101.0ms)[0m  CREATE TABLE [users] ([id] int NOT NULL IDENTITY(1,1) PRIMARY KEY, [name] nvarchar(4000), [email] nvarchar(4000), [created_at] datetime NOT NULL, [updated_at] datetime NOT NULL) 
+  [1m[36mSQL (101.4ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [schema_migrations] ([version]) VALUES (@0); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 nvarchar(4000)', @0 = N'20151012233146'[0m  [["version", "20151012233146"]]
+  [1m[35mSQL (107.2ms)[0m  COMMIT TRANSACTION
+Migrating to CreatePosts (20151012233206)
+  [1m[36mSQL (99.5ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35m (101.8ms)[0m  CREATE TABLE [posts] ([id] int NOT NULL IDENTITY(1,1) PRIMARY KEY, [content] nvarchar(max), [user_id] integer, [created_at] datetime NOT NULL, [updated_at] datetime NOT NULL) 
+  [1m[36mSQL (98.9ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [schema_migrations] ([version]) VALUES (@0); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 nvarchar(4000)', @0 = N'20151012233206'[0m  [["version", "20151012233206"]]
+  [1m[35mSQL (114.6ms)[0m  COMMIT TRANSACTION
+  [1m[36mActiveRecord::SchemaMigration Load (99.7ms)[0m  [1mEXEC sp_executesql N'SELECT [schema_migrations].* FROM [schema_migrations]'[0m
+  [1m[35m (102.1ms)[0m  EXEC sp_executesql N'EXEC sp_helpindex N''posts'''
+  [1m[36m (103.1ms)[0m  [1mEXEC sp_executesql N'EXEC sp_helpindex N''users'''[0m
+  [1m[35mExecute Procedure (99.8ms)[0m  EXEC sp_fkeys NULL, NULL, NULL, N'posts', NULL
+  [1m[36mExecute Procedure (100.3ms)[0m  [1mEXEC sp_fkeys NULL, NULL, NULL, N'users', NULL[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-12 16:37:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (100.0ms)[0m  [1mEXEC sp_executesql N'SELECT [schema_migrations].* FROM [schema_migrations]'[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 30ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 16:37:21 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (99.9ms)[0m  EXEC sp_executesql N'SELECT [users].* FROM [users]'
+  Rendered users/index.html.erb within layouts/application (406.4ms)
+Completed 200 OK in 2100ms (Views: 1694.8ms | ActiveRecord: 403.6ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-12 16:37:23 -0700
+
+
+Started GET "/assets/scaffolds.self-b814f35abb3a1587dab61ee95ef488056e860e2b4802de2ed265c97a942347f1.css?body=1" for 127.0.0.1 at 2015-10-12 16:37:23 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 16:37:23 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-12 16:37:23 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-10-12 16:37:24 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 16:37:24 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 16:37:24 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 16:37:24 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 16:37:24 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 16:37:24 -0700
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:39:30 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (99.7ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (626.8ms)
+Completed 200 OK in 698ms (Views: 81.3ms | ActiveRecord: 605.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 16:39:33 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (35.6ms)
+  Rendered posts/new.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 97ms (Views: 93.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 16:39:59 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (99.6ms)[0m  EXEC sp_executesql N'SELECT [users].* FROM [users]'
+  Rendered users/index.html.erb within layouts/application (405.1ms)
+Completed 200 OK in 498ms (Views: 79.0ms | ActiveRecord: 403.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-12 16:40:01 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 68ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-12 16:40:12 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HLlDTytDyBDYxhDyO78QTVDYEoC1RAHzZFI/rgaX5XfixKSdaa+BdXrj/LzXUbo3QNuhxNk/pIvPbDYCQ1CJEA==", "user"=>{"name"=>"andreatest", "email"=>"andrea@1234.com"}, "commit"=>"Create User"}
+  [1m[36mSQL (98.0ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mSQL (110.5ms)[0m  EXEC sp_executesql N'INSERT INTO [users] ([name], [email], [created_at], [updated_at]) OUTPUT INSERTED.[id] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(4000), @1 nvarchar(4000), @2 datetime, @3 datetime', @0 = N'andreatest', @1 = N'andrea@1234.com', @2 = '10-12-2015 23:40:12.405', @3 = '10-12-2015 23:40:12.405'  [["name", "andreatest"], ["email", "andrea@1234.com"], ["created_at", Mon, 12 Oct 2015 23:40:12 UTC +00:00], ["updated_at", Mon, 12 Oct 2015 23:40:12 UTC +00:00]]
+  [1m[36mSQL (140.9ms)[0m  [1mCOMMIT TRANSACTION[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 359ms (ActiveRecord: 349.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-12 16:40:12 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (100.7ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 268ms (Views: 66.6ms | ActiveRecord: 100.7ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2015-10-12 16:40:17 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (98.7ms)[0m  [1mEXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1[0m  [["id", "1"]]
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 149ms (Views: 49.2ms | ActiveRecord: 98.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-12 16:40:19 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (100.2ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 142ms (Views: 40.2ms | ActiveRecord: 100.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 16:40:26 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (103.6ms)[0m  [1mEXEC sp_executesql N'SELECT [users].* FROM [users]'[0m
+  Rendered users/index.html.erb within layouts/application (105.3ms)
+Completed 200 OK in 169ms (Views: 64.2ms | ActiveRecord: 103.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-10-12 16:40:29 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (99.1ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 159ms (Views: 57.9ms | ActiveRecord: 99.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 16:40:31 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (100.8ms)[0m  [1mEXEC sp_executesql N'SELECT [users].* FROM [users]'[0m
+  Rendered users/index.html.erb within layouts/application (104.8ms)
+Completed 200 OK in 192ms (Views: 90.3ms | ActiveRecord: 100.8ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2015-10-12 16:40:32 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (99.2ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1  [["id", "1"]]
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 156ms (Views: 55.9ms | ActiveRecord: 99.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 16:40:35 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (99.6ms)[0m  [1mEXEC sp_executesql N'SELECT [users].* FROM [users]'[0m
+  Rendered users/index.html.erb within layouts/application (100.9ms)
+Completed 200 OK in 218ms (Views: 117.5ms | ActiveRecord: 99.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:40:40 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (101.1ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (101.8ms)
+Completed 200 OK in 174ms (Views: 71.8ms | ActiveRecord: 101.1ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 16:40:42 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.4ms)
+  Rendered posts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:40:55 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sb0pQixdCXHfIOXj726ibSXRs7jP75pyUsxoRa9cNBFPwM6QbrFAFH0FCa0DgAgXNdIA/KOUPwr58mHp6ptYdg==", "post"=>{"content"=>"jiljsaflijsa;lfj;lsajf;lsajfjsa;lkjf;lksajflksajlkfjsa;lkfjsak;ljflkjsalkfjsa;lkfjlksajflsajf;ljdsalkf;jsa", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mSQL (98.4ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mSQL (105.2ms)[0m  EXEC sp_executesql N'INSERT INTO [posts] ([content], [user_id], [created_at], [updated_at]) OUTPUT INSERTED.[id] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(max), @1 int, @2 datetime, @3 datetime', @0 = N'jiljsaflijsa;lfj;lsajf;lsajfjsa;lkjf;lksajflksajlkfjsa;lkfjsak;ljflkjsalkfjsa;lkfjlksajflsajf;ljdsalkf;jsa', @1 = 1, @2 = '10-12-2015 23:40:55.357', @3 = '10-12-2015 23:40:55.357'  [["content", "jiljsaflijsa;lfj;lsajf;lsajfjsa;lkjf;lksajflksajlkfjsa;lkfjsak;ljflkjsalkfjsa;lkfjlksajflsajf;ljdsalkf;jsa"], ["user_id", 1], ["created_at", Mon, 12 Oct 2015 23:40:55 UTC +00:00], ["updated_at", Mon, 12 Oct 2015 23:40:55 UTC +00:00]]
+  [1m[36mSQL (114.0ms)[0m  [1mCOMMIT TRANSACTION[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 324ms (ActiveRecord: 317.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2015-10-12 16:40:55 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (100.1ms)[0m  EXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1  [["id", "1"]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 188ms (Views: 86.6ms | ActiveRecord: 100.1ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2015-10-12 16:40:58 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (302.6ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1[0m  [["id", "1"]]
+  Rendered posts/_form.html.erb (1.5ms)
+  Rendered posts/edit.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 416ms (Views: 111.8ms | ActiveRecord: 302.6ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2015-10-12 16:41:12 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FcUlQGCnulJOiWwMW9MFpARWU4aC38wuvel5yUuYdEmKvNHQ27XjOsfyf7dgeZsgBLqCnZw2kgRyaxLYOkNtg==", "post"=>{"content"=>"jf;saygfj9843toijrefodw;hgjdskghjalksjflkdasfjdsalkfjlkdsajflkjdsafkjdsalkfj;lkdsajflkjsalkfjdsalkjflksajfkldsajlfjdsalkjflkdsajlkfjsalkfjdsa;lkjfilwjoigthrsoiejgidsajbivjsablkjdsalkbjldajblkdajb;lkjdablkjfda;lkjblkdajb;fdajb;lkda", "user_id"=>"1"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[35mPost Load (99.1ms)[0m  EXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1  [["id", "1"]]
+  [1m[36mSQL (98.0ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mSQL (98.2ms)[0m  IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION
+  Rendered posts/_form.html.erb (2.3ms)
+  Rendered posts/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 364ms (Views: 63.9ms | ActiveRecord: 295.3ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2015-10-12 16:41:47 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mbDNSAxNRxGCde/4iAzVusNhde6FTwyYtHl/iSW5DX5nzSqaTqEOdCBQA7Zk4n/A02LGquk0qeAfR3YlYH5hGQ==", "post"=>{"content"=>"fjlkdjflkjdslafjlksa", "user_id"=>"1"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (100.4ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1[0m  [["id", "1"]]
+  [1m[35mSQL (98.0ms)[0m  BEGIN TRANSACTION
+  [1m[36mSQL (101.4ms)[0m  [1mEXEC sp_executesql N'UPDATE [posts] SET [content] = @0, [updated_at] = @1 WHERE [posts].[id] = @2; SELECT @@ROWCOUNT AS AffectedRows', N'@0 nvarchar(max), @1 datetime, @2 int', @0 = N'fjlkdjflkjdslafjlksa', @1 = '10-12-2015 23:41:48.277', @2 = 1[0m  [["content", "fjlkdjflkjdslafjlksa"], ["updated_at", Mon, 12 Oct 2015 23:41:48 UTC +00:00], ["id", 1]]
+  [1m[35mSQL (106.2ms)[0m  COMMIT TRANSACTION
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 411ms (ActiveRecord: 406.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2015-10-12 16:41:48 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (97.9ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1[0m  [["id", "1"]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 160ms (Views: 60.7ms | ActiveRecord: 97.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:41:51 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (99.5ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (101.0ms)
+Completed 200 OK in 164ms (Views: 64.2ms | ActiveRecord: 99.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (99.0ms)[0m  [1mEXEC sp_executesql N'SELECT [schema_migrations].* FROM [schema_migrations]'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (100.2ms)[0m  EXEC sp_executesql N'SELECT [schema_migrations].* FROM [schema_migrations]'
+  [1m[36m (101.2ms)[0m  [1mEXEC sp_executesql N'EXEC sp_helpindex N''posts'''[0m
+  [1m[35m (101.3ms)[0m  EXEC sp_executesql N'EXEC sp_helpindex N''users'''
+  [1m[36mExecute Procedure (100.1ms)[0m  [1mEXEC sp_fkeys NULL, NULL, NULL, N'posts', NULL[0m
+  [1m[35mExecute Procedure (100.4ms)[0m  EXEC sp_fkeys NULL, NULL, NULL, N'users', NULL
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 16:43:31 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 564ms (Views: 44.0ms | ActiveRecord: 511.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:43:40 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ud99YcncTUwS4GbkiZ8nOt6LwomvY2KX8W4FW421VXKvopqzizAEKbDFiqplcY1AzohxzcMYx+9aUAz3yHI5FQ==", "post"=>{"content"=>"flkdalksalkf", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[36mSQL (98.6ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mSQL (128.1ms)[0m  EXEC sp_executesql N'INSERT INTO [posts] ([content], [user_id], [created_at], [updated_at]) OUTPUT INSERTED.[id] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(max), @1 int, @2 datetime, @3 datetime', @0 = N'flkdalksalkf', @1 = 2, @2 = '10-12-2015 23:43:41.169', @3 = '10-12-2015 23:43:41.169'  [["content", "flkdalksalkf"], ["user_id", 2], ["created_at", Mon, 12 Oct 2015 23:43:41 UTC +00:00], ["updated_at", Mon, 12 Oct 2015 23:43:41 UTC +00:00]]
+  [1m[36mSQL (155.7ms)[0m  [1mCOMMIT TRANSACTION[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 387ms (ActiveRecord: 382.5ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2015-10-12 16:43:41 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (98.8ms)[0m  EXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2  [["id", "2"]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 174ms (Views: 72.6ms | ActiveRecord: 98.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:49:25 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (100.9ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (2403.1ms)
+Completed 200 OK in 2452ms (Views: 53.3ms | ActiveRecord: 2395.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:49:28 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (100.0ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (101.7ms)
+Completed 200 OK in 146ms (Views: 45.0ms | ActiveRecord: 100.0ms)
+
+
+Started DELETE "/posts/2" for 127.0.0.1 at 2015-10-12 16:49:31 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zVZ2v70lO+yE6G6RgReYCAUs8uWUa6Dl+dIvm5Y1qaMzK5Ft/8lyiSbNgt9t+TJyFS9BofgQBZ1S7CY30/LFxA==", "id"=>"2"}
+  [1m[36mPost Load (101.0ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2[0m  [["id", "2"]]
+  [1m[35mSQL (98.4ms)[0m  BEGIN TRANSACTION
+  [1m[36mSQL (100.1ms)[0m  [1mEXEC sp_executesql N'DELETE FROM [posts] WHERE [posts].[id] = @0; SELECT @@ROWCOUNT AS AffectedRows', N'@0 int', @0 = 2[0m  [["id", 2]]
+  [1m[35mSQL (108.4ms)[0m  COMMIT TRANSACTION
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 413ms (ActiveRecord: 407.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:49:32 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (99.7ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (100.9ms)
+Completed 200 OK in 187ms (Views: 86.4ms | ActiveRecord: 99.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 16:49:33 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.7ms)
+  Rendered posts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 62ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:49:36 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sVrmowsJK4J1mayP6J3HtNk/lJeUnTIcIOV+XRoj1QZPJwFxSeVi59e8QMEEc23OyTwn0/jml2SL23fxX+S5YQ==", "post"=>{"content"=>"dfasfsafsa", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[35mSQL (103.3ms)[0m  BEGIN TRANSACTION
+  [1m[36mSQL (101.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [posts] ([content], [user_id], [created_at], [updated_at]) OUTPUT INSERTED.[id] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(max), @1 int, @2 datetime, @3 datetime', @0 = N'dfasfsafsa', @1 = 2, @2 = '10-12-2015 23:49:36.884', @3 = '10-12-2015 23:49:36.884'[0m  [["content", "dfasfsafsa"], ["user_id", 2], ["created_at", Mon, 12 Oct 2015 23:49:36 UTC +00:00], ["updated_at", Mon, 12 Oct 2015 23:49:36 UTC +00:00]]
+  [1m[35mSQL (141.2ms)[0m  COMMIT TRANSACTION
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 350ms (ActiveRecord: 345.5ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2015-10-12 16:49:37 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (102.1ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 3[0m  [["id", "3"]]
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 217ms (Views: 113.0ms | ActiveRecord: 102.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:50:26 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (99.5ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (637.7ms)
+Completed 200 OK in 697ms (Views: 83.0ms | ActiveRecord: 611.4ms)
+
+
+Started DELETE "/posts/3" for 127.0.0.1 at 2015-10-12 16:50:30 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YaLVAcgq0AkVdrac03kFj7vKb7bRXnNGoEn7X6xO+P2f3zLTisaZbLdTWtI/l6/1q8nc8r0l1j4Ld/Lz6YmUmg==", "id"=>"3"}
+  [1m[36mPost Load (99.1ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 3[0m  [["id", "3"]]
+  [1m[35mSQL (98.2ms)[0m  BEGIN TRANSACTION
+  [1m[36mSQL (98.6ms)[0m  [1mEXEC sp_executesql N'DELETE FROM [posts] WHERE [posts].[id] = @0; SELECT @@ROWCOUNT AS AffectedRows', N'@0 int', @0 = 3[0m  [["id", 3]]
+  [1m[35mSQL (149.2ms)[0m  COMMIT TRANSACTION
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 449ms (ActiveRecord: 445.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:50:30 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (100.1ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (101.8ms)
+Completed 200 OK in 203ms (Views: 102.3ms | ActiveRecord: 100.1ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 16:50:32 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.4ms)
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:50:35 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KE/XoW7VyzZWvTZCn+ZvsmpjVKKcj9B6SSDchmSrwkTWMjBzLDmCU/SY2gxzCMXIemDn5vD0dQLiHtUqIWyuIw==", "post"=>{"content"=>"fdsafsa", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[35mSQL (98.2ms)[0m  BEGIN TRANSACTION
+  [1m[36mSQL (99.3ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [posts] ([content], [user_id], [created_at], [updated_at]) OUTPUT INSERTED.[id] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(max), @1 int, @2 datetime, @3 datetime', @0 = N'fdsafsa', @1 = 2, @2 = '10-12-2015 23:50:36.026', @3 = '10-12-2015 23:50:36.026'[0m  [["content", "fdsafsa"], ["user_id", 2], ["created_at", Mon, 12 Oct 2015 23:50:36 UTC +00:00], ["updated_at", Mon, 12 Oct 2015 23:50:36 UTC +00:00]]
+  [1m[35mSQL (107.5ms)[0m  COMMIT TRANSACTION
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 309ms (ActiveRecord: 305.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2015-10-12 16:50:36 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (99.3ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 4[0m  [["id", "4"]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 146ms (Views: 45.8ms | ActiveRecord: 99.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:58:07 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (100.2ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (627.4ms)
+Completed 200 OK in 697ms (Views: 84.4ms | ActiveRecord: 610.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 16:58:10 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 96ms (Views: 95.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:58:13 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bTql/Lt/9FYTg47jN7EkQMiuyWLn9aNXcsdStcTOB92TR0Iu+ZO9M7GmYq3bX4462K16JouOBi/Z+VsZgQlrug==", "post"=>{"content"=>"fadsfsafs", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[36mSQL (98.7ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mUser Load (99.8ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2  [["id", 2]]
+  [1m[36mSQL (102.6ms)[0m  [1mIF @@TRANCOUNT > 0 ROLLBACK TRANSACTION[0m
+  Rendered posts/_form.html.erb (2.2ms)
+  Rendered posts/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 696ms (Views: 60.8ms | ActiveRecord: 603.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:58:17 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RMpqcZSb3etdyVPij/JXZiDmliJRNf2bgy9DUdaFffm6t42j1neUjv/sv6xjHP0cMOUlZj1OWOMoEUr9k0IRng==", "post"=>{"content"=>"fadsfsafs", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[35mSQL (99.1ms)[0m  BEGIN TRANSACTION
+  [1m[36mUser Load (99.6ms)[0m  [1mEXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2[0m  [["id", 2]]
+  [1m[35mSQL (98.3ms)[0m  IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION
+  Rendered posts/_form.html.erb (1.8ms)
+  Rendered posts/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 364ms (Views: 62.4ms | ActiveRecord: 296.9ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 16:59:15 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RMpqcZSb3etdyVPij/JXZiDmliJRNf2bgy9DUdaFffm6t42j1neUjv/sv6xjHP0cMOUlZj1OWOMoEUr9k0IRng==", "post"=>{"content"=>"fadsfsafs", "user_id"=>"2"}, "commit"=>"Create Post"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Unknown validator: 'MessageValidator'):
+  app/models/post.rb:6:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:27:in `create'
+
+
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.0ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (7.2ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (4.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (33.3ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (73.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:59:36 -0700
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Unknown validator: 'MessageValidator'):
+  app/models/post.rb:6:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.6ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (48.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:59:39 -0700
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Unknown validator: 'MessageValidator'):
+  app/models/post.rb:6:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.6ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (26.3ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (2.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (59.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 16:59:43 -0700
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Unknown validator: 'MessageValidator'):
+  app/models/post.rb:6:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.8ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (3.3ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (31.7ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (67.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 17:35:53 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (102.3ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (1958.6ms)
+Completed 200 OK in 2531ms (Views: 587.7ms | ActiveRecord: 1911.9ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-12 17:35:59 -0700
+
+
+Started GET "/assets/scaffolds.self-b814f35abb3a1587dab61ee95ef488056e860e2b4802de2ed265c97a942347f1.css?body=1" for 127.0.0.1 at 2015-10-12 17:35:59 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-12 17:35:59 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-10-12 17:35:59 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 17:36:00 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 17:36:00 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 17:36:00 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 17:36:00 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 17:36:00 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 17:36:00 -0700
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-10-12 17:36:04 -0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (14.1ms)
+  Rendered posts/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 106ms (Views: 103.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 17:36:10 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cfhxw64RYBZxcGzoMd9vOeovI93bIYWBNt7bIkZpg4SPhZYR7P0pc9NVgKbdMcVD+iyQmbdaIPmd4NKOA67v4w==", "post"=>{"content"=>"fdafsafs", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[35mSQL (100.1ms)[0m  BEGIN TRANSACTION
+  [1m[36mUser Load (102.2ms)[0m  [1mEXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2[0m  [["id", 2]]
+  [1m[35mSQL (113.7ms)[0m  IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION
+  Rendered posts/_form.html.erb (7.5ms)
+  Rendered posts/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 954ms (Views: 360.8ms | ActiveRecord: 552.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 17:36:58 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"84nkZkrq5I7/lrUreTahmxywIuVJx8YeT27K8VqBvwEN9AO0CAat612zWWWV2AvhDLORoSW8Y2bkUMNdH0bTZg==", "post"=>{"content"=>"fdafsafs", "user_id"=>"2"}, "commit"=>"Create Post"}
+  [1m[36mSQL (136.3ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mUser Load (100.2ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2  [["id", 2]]
+  [1m[36mSQL (101.4ms)[0m  [1mIF @@TRANCOUNT > 0 ROLLBACK TRANSACTION[0m
+  Rendered posts/_form.html.erb (20.0ms)
+  Rendered posts/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 1451ms (Views: 311.8ms | ActiveRecord: 994.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-10-12 17:37:11 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sN1VhvD9c7jPJNtBrwNKproKrNiT5DpP6P59gFqbE6tOoLJUshE63W0BNw9D7eDcqgkfnP+fnzdDwHQsH1x/zA==", "post"=>{"content"=>"fdafsafs", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[35mSQL (100.6ms)[0m  BEGIN TRANSACTION
+  [1m[36mUser Load (100.8ms)[0m  [1mEXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 1[0m  [["id", 1]]
+  [1m[35mSQL (107.6ms)[0m  EXEC sp_executesql N'INSERT INTO [posts] ([content], [user_id], [created_at], [updated_at]) OUTPUT INSERTED.[id] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(max), @1 int, @2 datetime, @3 datetime', @0 = N'fdafsafs', @1 = 1, @2 = '10-13-2015 00:37:11.924', @3 = '10-13-2015 00:37:11.924'  [["content", "fdafsafs"], ["user_id", 1], ["created_at", Tue, 13 Oct 2015 00:37:11 UTC +00:00], ["updated_at", Tue, 13 Oct 2015 00:37:11 UTC +00:00]]
+  [1m[36mSQL (144.8ms)[0m  [1mCOMMIT TRANSACTION[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 542ms (ActiveRecord: 453.8ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2015-10-12 17:37:12 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (115.6ms)[0m  EXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 5  [["id", "5"]]
+  Rendered posts/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 525ms (Views: 402.2ms | ActiveRecord: 115.6ms)
+
+
+Started GET "/posts/5/edit" for 127.0.0.1 at 2015-10-12 17:37:17 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (100.1ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 5[0m  [["id", "5"]]
+  Rendered posts/_form.html.erb (5.4ms)
+  Rendered posts/edit.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 355ms (Views: 252.5ms | ActiveRecord: 100.1ms)
+
+
+Started PATCH "/posts/5" for 127.0.0.1 at 2015-10-12 17:37:21 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BA7LAZyn2K/fCxAyhIHjCALPjBtgJOsvoTbbOS2mHDL6cyzT3kuRyn0u/Hxob0lyEsw/XwxfTlcKCNKVaGFwVQ==", "post"=>{"content"=>"fdafsafs", "user_id"=>"2"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[35mPost Load (112.3ms)[0m  EXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 5  [["id", "5"]]
+  [1m[36mSQL (101.8ms)[0m  [1mBEGIN TRANSACTION[0m
+  [1m[35mUser Load (101.4ms)[0m  EXEC sp_executesql N'SELECT  [users].* FROM [users] WHERE [users].[id] = @0  ORDER BY [users].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 2  [["id", 2]]
+  [1m[36mSQL (105.9ms)[0m  [1mIF @@TRANCOUNT > 0 ROLLBACK TRANSACTION[0m
+  Rendered posts/_form.html.erb (83.2ms)
+  Rendered posts/edit.html.erb within layouts/application (89.4ms)
+Completed 200 OK in 903ms (Views: 462.7ms | ActiveRecord: 421.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 17:37:26 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (133.3ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (200.9ms)
+Completed 200 OK in 677ms (Views: 542.2ms | ActiveRecord: 133.3ms)
+
+
+Started DELETE "/posts/5" for 127.0.0.1 at 2015-10-12 17:37:32 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2N9wmpxrp+CUkIrhCmkt7hdLS+uctiOXWDfRVCUHjRwmopdI3ofuhTa1Zq/mh4eUB0j4r/DNhu/zCdj4YMDhew==", "id"=>"5"}
+  [1m[36mPost Load (119.7ms)[0m  [1mEXEC sp_executesql N'SELECT  [posts].* FROM [posts] WHERE [posts].[id] = @0  ORDER BY [posts].[id] ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY', N'@0 int', @0 = 5[0m  [["id", "5"]]
+  [1m[35mSQL (105.1ms)[0m  BEGIN TRANSACTION
+  [1m[36mSQL (128.6ms)[0m  [1mEXEC sp_executesql N'DELETE FROM [posts] WHERE [posts].[id] = @0; SELECT @@ROWCOUNT AS AffectedRows', N'@0 int', @0 = 5[0m  [["id", 5]]
+  [1m[35mSQL (109.0ms)[0m  COMMIT TRANSACTION
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 481ms (ActiveRecord: 462.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 17:37:33 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (104.2ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (110.6ms)
+Completed 200 OK in 602ms (Views: 495.7ms | ActiveRecord: 104.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:25:30 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (100.3ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (101.9ms)
+Completed 200 OK in 104ms (Views: 3.3ms | ActiveRecord: 100.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-12 18:25:41 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/andrela/.rvm/gems/ruby-2.1.2/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 18:25:45 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (99.2ms)[0m  [1mEXEC sp_executesql N'SELECT [users].* FROM [users]'[0m
+  Rendered users/index.html.erb within layouts/application (101.0ms)
+Completed 200 OK in 103ms (Views: 3.3ms | ActiveRecord: 99.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 18:26:02 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (101.7ms)[0m  EXEC sp_executesql N'SELECT [users].* FROM [users]'
+  Rendered users/index.html.erb within layouts/application (105.2ms)
+Completed 200 OK in 176ms (Views: 74.0ms | ActiveRecord: 101.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 18:34:19 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (98.4ms)[0m  [1mEXEC sp_executesql N'SELECT [users].* FROM [users]'[0m
+  Rendered users/index.html.erb within layouts/application (99.7ms)
+Completed 200 OK in 201ms (Views: 101.2ms | ActiveRecord: 98.4ms)
+
+
+Started GET "/assets/application.self-e5678c13db84efe117374500b5f3d20f837cde98bc2d247cc216b38bea51811a.css?body=1" for 127.0.0.1 at 2015-10-12 18:34:19 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:34:19 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:34:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:34:19 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:34:19 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:34:20 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:34:20 -0700
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:34:27 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (98.9ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (102.1ms)
+Completed 200 OK in 166ms (Views: 66.2ms | ActiveRecord: 98.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:41:00 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (100.1ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (102.3ms)
+Completed 200 OK in 176ms (Views: 73.7ms | ActiveRecord: 100.1ms)
+
+
+Started GET "/assets/application.self-fc19bdf705afca4c092825eafc6e26cf05a2e4bbe43273e30646d1ca5e06b47f.css?body=1" for 127.0.0.1 at 2015-10-12 18:41:00 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:41:00 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:41:00 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:41:01 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:41:01 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:41:01 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:41:01 -0700
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:42:02 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (99.2ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (100.8ms)
+Completed 200 OK in 172ms (Views: 71.2ms | ActiveRecord: 99.2ms)
+
+
+Started GET "/assets/application.self-9d73f5fa87fb95c382dde167558e49b9336b35427afa5a4184b99fc4d278d21c.css?body=1" for 127.0.0.1 at 2015-10-12 18:42:02 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:02 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:02 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:02 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:03 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:03 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:03 -0700
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:42:19 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (101.2ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (103.0ms)
+Completed 200 OK in 205ms (Views: 102.7ms | ActiveRecord: 101.2ms)
+
+
+Started GET "/assets/application.self-c1605a7e9d03f0b4e5ec373f7839c21b8cb3d1f431757d44b66bc87495d970d2.css?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:20 -0700
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:42:40 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (98.2ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (99.5ms)
+Completed 200 OK in 167ms (Views: 68.2ms | ActiveRecord: 98.2ms)
+
+
+Started GET "/assets/application.self-5a5e89bade2117f5b3baa2f62e44f1f1fa52969979a478ebfd525f484d98dbdb.css?body=1" for 127.0.0.1 at 2015-10-12 18:42:40 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:40 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:40 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:40 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:40 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:41 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:42:41 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-12 18:42:45 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (97.9ms)[0m  [1mEXEC sp_executesql N'SELECT [users].* FROM [users]'[0m
+  Rendered users/index.html.erb within layouts/application (99.4ms)
+Completed 200 OK in 137ms (Views: 38.4ms | ActiveRecord: 97.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:44:17 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (99.1ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (101.0ms)
+Completed 200 OK in 144ms (Views: 44.4ms | ActiveRecord: 99.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:49:28 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (98.7ms)[0m  [1mEXEC sp_executesql N'SELECT [posts].* FROM [posts]'[0m
+  Rendered posts/index.html.erb within layouts/application (100.3ms)
+Completed 200 OK in 176ms (Views: 76.8ms | ActiveRecord: 98.7ms)
+
+
+Started GET "/assets/application.self-138e5606fa1269303b4c321cf4ca5d66b643d89a9798ad7d41e3226c5ee46e6b.css?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:29 -0700
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-10-12 18:49:41 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (98.5ms)[0m  EXEC sp_executesql N'SELECT [posts].* FROM [posts]'
+  Rendered posts/index.html.erb within layouts/application (100.1ms)
+Completed 200 OK in 224ms (Views: 125.1ms | ActiveRecord: 98.5ms)
+
+
+Started GET "/assets/application.self-440781fe7fffe07d25e6610cd05e40fa14df96242e416ff9b78c33f1e926f19e.css?body=1" for 127.0.0.1 at 2015-10-12 18:49:41 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:41 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:41 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:41 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:42 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:42 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-12 18:49:42 -0700
