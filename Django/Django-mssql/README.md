@@ -4,24 +4,11 @@
 
 1. Install SQL Server Native client and SQL Server Management Studio
 
-	a) Downlowd SQL Server Native client from the here if you are on a x86 machine and here if you are on a x64 machine.
+	a) Downlowd SQL Server Native client from the [here]() if you are on a x86 machine and [here]() if you are on a x64 machine.
 
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	b) Download SQL Server Management Studio from here      
+	b) Download SQL Server Management Studio from [here]()      
 		
-	c) Configure odbcinst.ini.  
-	
-		open /usr/local/etc/odbcinst.ini	
-
-	Copy this and paste it in odbcinst.ini.
-	
-		[FreeTDS]
-		Description = TD Driver (MSSQL)
-		Driver = /usr/local/lib/libtdsodbc.so
-		Setup = /usr/local/lib/libtdsodbc.so
-		FileUsage = 1
-	
 
 	d) Install the SQL Server - Azure SQL DB adapter
 
@@ -34,7 +21,7 @@
         git clone https://github.com/Azure/azure-sql-database-samples.git
 
 
-3. cd into the azure-sql-database-samples/Django/Django-pymssql folder
+3. cd into the azure-sql-database-samples/Django/Django-mssql folder
 
 
 4. Run setup.py. example: python setup.py yourserver.database.windows.net database username password
@@ -47,20 +34,18 @@
 5. Edit settings.py with your database settings. Make sure you change your credentials.
         
         
-	DATABASES = {
-	    'default': {
-	        'NAME': 'test5',
-	        'ENGINE': 'sqlserver_ado',
-	        'HOST': 'csucla2015.database.windows.net',
-	        'USER': 'meet_bhagdev',
-	        'PASSWORD': 'avengersA1',
-	        'OPTIONS': {
-	            'provider' : 'SQLOLEDB'
-	        }
-	    }
-	}
-
-
+		DATABASES = {
+		    'default': {
+		        'NAME': 'yourdatabasename',
+		        'ENGINE': 'sqlserver_ado',
+		        'HOST': 'yourserver.database.windows.net',
+		        'USER': 'yourusername',
+		        'PASSWORD': 'password',
+		        'OPTIONS': {
+		            'provider' : 'SQLOLEDB'
+		        }
+		    }
+		}
 
 
 7. Run django migrations
