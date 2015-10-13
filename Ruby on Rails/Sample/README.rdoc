@@ -1,28 +1,9 @@
-== README
+== Ruby on Rails Posting Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This sample application creates a posting app with two models - Users and Posts
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The app uses: 
+- Ruby version 2.1.2
+- Rails version 4.2.4
+- TinyTDS version 0.7.0
+- activerecord-sqlserver-adapter version 4.2.4
