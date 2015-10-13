@@ -21,10 +21,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'djangodatacamp',
-        'USER': 'meet_bhagdev@csucla2015',
-        'PASSWORD': 'avengersA1',
-        'HOST': 'csucla2015.database.windows.net',
+        'NAME': 'databasename',
+        'USER': 'username@servername',
+        'PASSWORD': 'password',
+        'HOST': 'servername.database.windows.net',
         'PORT': '1433',
 
 
