@@ -19,11 +19,11 @@
 
 	Copy this and paste it in odbcinst.ini.
 	
-        [FreeTDS]
-	Description = TD Driver (MSSQL)
-	Driver = /usr/local/lib/libtdsodbc.so
-	Setup = /usr/local/lib/libtdsodbc.so
-	FileUsage = 1
+	        [FreeTDS]
+		Description = TD Driver (MSSQL)
+		Driver = /usr/local/lib/libtdsodbc.so
+		Setup = /usr/local/lib/libtdsodbc.so
+		FileUsage = 1
 	
 
 	c) Install the SQL Server - Azure SQL DB adapter
