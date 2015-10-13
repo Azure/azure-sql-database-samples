@@ -1,27 +1,31 @@
 # Ruby on Rails - Sample Application on Mac
 
-##Install Homebrew
+##Install Prequisites
+
+Install Homebrew
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)“
 
-##Install FreeTDS
+Install FreeTDS
 	brew install FreeTDS
 
-##Install Tiny_TDS
+Install Tiny_TDS
 	gem install tiny_tds
 
-##Install Rails
+Install Rails
 	gem install rails
  
-##Install activerecord-sqlserver-adapter
+Install activerecord-sqlserver-adapter
 	gem install activerecord-sqlserver-adapter
 
 ##Clone sample project from GitHub
 	git clone https://github.com/Azure/azure-sql-database-samples.git
 	cd into the following folder /azure-sql-database-samples/Ruby on Rails/Sample
 
-bundle install
+##Configure SQL Database
+Install the rest of the prereqs.
+	bundle install
 
-##Update database.yml (/config/database.yml)  file in your project:
+Update the database.yml (/config/database.yml) file. 
 	development:
 	  adapter: sqlserver 
 	  mode: dblib 
