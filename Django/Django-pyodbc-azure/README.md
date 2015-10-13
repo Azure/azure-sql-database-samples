@@ -40,7 +40,7 @@
 3. cd into the azure-sql-database-samples/Django/Django-pyodbc-azure folder
 
 
-4. Run setup.py. example: python setup.py csucla2015.database.windows.net djangodemoui meet_bhagdev avengersA1
+4. Run setup.py. example: python setup.py servername.database.windows.net databasename username password
 
 
         python setup.py servername datbasename username password
