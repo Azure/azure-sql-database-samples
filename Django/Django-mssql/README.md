@@ -10,9 +10,10 @@
 	b) Download SQL Server Management Studio from [here](https://msdn.microsoft.com/en-us/library/mt238290.aspx)      
 		
 
-	d) Install the SQL Server - Azure SQL DB adapter
+	d) Install the SQL Server - Azure SQL DB adapter from the command line
 
-        sudo pip install django-mssql
+        pip install django==1.7
+        pip install django-mssql
 
 
 2. Git clone this project
