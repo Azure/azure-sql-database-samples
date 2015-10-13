@@ -30,13 +30,13 @@
         git clone https://github.com/Azure/azure-sql-database-samples.git
 
 
-3. cd into the azure-sql-database-samples folder and then cd into the django folder
+3. cd into the azure-sql-database-samples/Django/Django-pymssql folder
 
 
-4. Run setup.py. example: python setup.py csucla2015.database.windows.net djangodemoui meet_bhagdev avengersA1
+4. Run setup.py.
 
 
-        python setup.py servername datbasename username password
+        python setup.py servername.database.windows.net datbasename username password
         
         
    
