@@ -27,7 +27,7 @@
 4. Run setup.py. example: python setup.py yourserver.database.windows.net database username password
 
 
-        python setup.py servername datbasename username password
+        python setup.py servername.database.windows.net datbasename username password
         
         
    
