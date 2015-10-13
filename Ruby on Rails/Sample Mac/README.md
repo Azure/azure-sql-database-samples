@@ -10,18 +10,6 @@ Install FreeTDS
 
 	brew install FreeTDS
 
-Install Tiny_TDS
-
-	gem install tiny_tds
-
-Install Rails
-
-	gem install rails
- 
-Install activerecord-sqlserver-adapter
-
-	gem install activerecord-sqlserver-adapter
-
 ##Clone sample project from GitHub
 
 	git clone https://github.com/Azure/azure-sql-database-samples.git
@@ -48,7 +36,7 @@ Update the database.yml (/config/database.yml) file.
 
 ##Migrate the database 
 
-	rake db:migrate
+	rake db:setup
 
 ##Start the app
 
