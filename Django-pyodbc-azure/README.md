@@ -8,12 +8,12 @@
 
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
-
-	brew install unixodbc
-	brew install freetds --with-unixodbc        
+	b) FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
 	
-	b) Configure odbcinst.ini.  
+		brew install unixodbc
+		brew install freetds --with-unixodbc        
+		
+	c) Configure odbcinst.ini.  
 	
 		open /usr/local/etc/odbcinst.ini	
 
@@ -26,7 +26,7 @@
 		FileUsage = 1
 	
 
-	c) Install the SQL Server - Azure SQL DB adapter
+	d) Install the SQL Server - Azure SQL DB adapter
 
         sudo pip install django-pyodbc-azure
 
