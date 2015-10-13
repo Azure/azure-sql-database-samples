@@ -1,4 +1,4 @@
-# Ruby on Rails - Sample Application
+# Ruby on Rails - Sample Application on Ubuntu
 
 ## Install the required modules
 
