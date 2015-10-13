@@ -41,8 +41,12 @@ Install activerecord-sqlserver-adapter
 ## Git clone this project 
 
     git clone https://github.com/Azure/azure-sql-database-samples.git
-
+    
 ## Connect to Azure SQL Database
+
+Bundle install to make sure you have the rest of the prereqs.  
+
+    bundle install
   
 Update the database.yml file (/test_application/config/database.yml)
 
