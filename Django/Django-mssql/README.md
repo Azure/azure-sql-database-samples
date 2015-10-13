@@ -1,27 +1,31 @@
 #Instructions
 
 
-1. Install FreeTDS, Django 1.7, pymssql, and django-pymsqsl
 
-	a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
+1. Install SQL Server Native client and SQL Server Management Studio
+
+	a) Downlowd SQL Server Native client from the here if you are on a x86 machine and here if you are on a x64 machine.
 
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	FreeTDS: Run the following command from your terminal. This will download FreeTDS on your 	machine. FreeTDS is required for pymmsql to work.
+	b) Download SQL Server Management Studio from here      
+		
+	c) Configure odbcinst.ini.  
+	
+		open /usr/local/etc/odbcinst.ini	
 
-        brew install FreeTDS
-        
-	b) Django
+	Copy this and paste it in odbcinst.ini.
+	
+		[FreeTDS]
+		Description = TD Driver (MSSQL)
+		Driver = /usr/local/lib/libtdsodbc.so
+		Setup = /usr/local/lib/libtdsodbc.so
+		FileUsage = 1
+	
 
-        sudo pip install django==1.7
+	d) Install the SQL Server - Azure SQL DB adapter
 
-	c) pymssql
-
-        sudo pip install pymssql
-
-	d) django-pymssql
-
-        sudo pip install django-pymsqsl	
+        sudo pip install django-mssql
 
 
 2. Git clone this project
@@ -30,10 +34,10 @@
         git clone https://github.com/Azure/azure-sql-database-samples.git
 
 
-3. cd into the azure-sql-database-samples folder and then cd into the django folder
+3. cd into the azure-sql-database-samples/Django/Django-pymssql folder
 
 
-4. Run setup.py. example: python setup.py csucla2015.database.windows.net djangodemoui meet_bhagdev avengersA1
+4. Run setup.py. example: python setup.py yourserver.database.windows.net database username password
 
 
         python setup.py servername datbasename username password
@@ -43,25 +47,32 @@
 5. Edit settings.py with your database settings. Make sure you change your credentials.
         
         
-         DATABASES = {
+	DATABASES = {
 	    'default': {
-	        'ENGINE': 'sqlserver_pymssql',
+	        'NAME': 'test5',
+	        'ENGINE': 'sqlserver_ado',
 	        'HOST': 'csucla2015.database.windows.net',
-	        'NAME': 'djangodemoui',
-	        'USER': 'meet_bhagdev@csucla2015',
+	        'USER': 'meet_bhagdev',
 	        'PASSWORD': 'avengersA1',
 	        'OPTIONS': {
-	            # ...
-        		   },
-	    		},
-		    }
+	            'provider' : 'SQLOLEDB'
+	        }
+	    }
+	}
 
 
-6. Run Django migrations
-<br>From your project folder where manage.py is located run the following:
 
-	python manage.py migrate
+
+7. Run django migrations
+
+        python manage.py migrate
 
 7. Run your django app
 
         python manage.py runserver
+
+
+
+	
+
+
