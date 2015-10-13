@@ -25,7 +25,8 @@ Install activerecord-sqlserver-adapter
 ##Clone sample project from GitHub
 
 	git clone https://github.com/Azure/azure-sql-database-samples.git
-	cd into the following folder /azure-sql-database-samples/Ruby on Rails/Sample
+	
+cd into the following folder /azure-sql-database-samples/Ruby on Rails/Sample
 
 ##Configure SQL Database
 Install the rest of the prereqs.
