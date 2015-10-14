@@ -25,19 +25,6 @@ If there are no issues with signatures, run the following commands.
 
 Ensure that you are running version 2.1.2 or the Ruby VM.
 
-Next, install TinyTDS.
-
-    gem install tiny_tds
-  
-Install Ruby on Rails and check the version
-
-    gem install rails 4.2.4
-    rails -v
-
-Install activerecord-sqlserver-adapter
-
-    gem install activerecord-sqlserver-adapter
-
 ## Git clone this project 
 
     git clone https://github.com/Azure/azure-sql-database-samples.git
