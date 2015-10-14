@@ -20,13 +20,7 @@ Install the package from the .dmg by following along the install wizard which wi
 
 After your machine is configured with **node** and **npm**, navigate to a directory where you plan to create your Node.js project, and enter the following commands.
 
-
-	npm init
-	npm install tedious
-
-
-**npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.
-
+npm install
 
 ### Create an AdventureWorks database
 
