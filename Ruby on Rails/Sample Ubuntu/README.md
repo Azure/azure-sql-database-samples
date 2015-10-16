@@ -50,7 +50,7 @@ Update the database.yml file (/test_application/config/database.yml)
 
 Check that the connection is working by migrating to the database. If there are no errors, the database is connected properly.
 
-    rake db:migrate
+    rake db:setup
 
 ##Notes for using TinyTDS with Azure
 
