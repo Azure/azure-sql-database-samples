@@ -19,6 +19,8 @@ Here we will cover samples for:
 
 9. [C#](https://github.com/Azure/azure-sql-database-samples/tree/master/C%23)
 
+10. [T-SQL](https://github.com/Azure/azure-sql-database-samples/tree/master/T-SQL/In-Memory)
+
 # Questions
 For questions please email meetb@microsoft.com or andrela@microsoft.com
 
