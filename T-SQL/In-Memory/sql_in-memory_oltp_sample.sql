@@ -1,7 +1,7 @@
 -- The below script is used to install the AdventureWorksLT sample for In-Memory OLTP in Azure SQL Database.
 -- The sample requires a new Premium database, created based on the AdventureWorksLT sample.
 --
--- Last updated: 2015-07-31
+-- Last updated: 2015-12-07
 --
 -- 
 --  Copyright (C) Microsoft Corporation.  All rights reserved.
@@ -34,14 +34,12 @@ GO
 
 -- first drop all objects that have a schema-bound dependency on the table
 
-IF object_id('[SalesLT].[usp_InsertSalesOrder_inmem]') IS NOT NULL
-	DROP PROCEDURE [SalesLT].usp_InsertSalesOrder_inmem 
+DROP PROCEDURE IF EXISTS [SalesLT].usp_InsertSalesOrder_inmem 
 GO
-IF object_id('[SalesLT].[SalesOrderHeader_inmem]') IS NOT NULL
-	DROP TABLE [SalesLT].[SalesOrderHeader_inmem] 
+DROP TABLE IF EXISTS [SalesLT].[SalesOrderHeader_inmem] 
 GO
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
-	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT=1000000),
+	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT=100000),
 	[RevisionNumber] [tinyint] NOT NULL CONSTRAINT [IMDF_SalesOrderHeader_RevisionNumber]  DEFAULT ((0)),
 	[OrderDate] [datetime2] NOT NULL ,
 	[DueDate] [datetime2] NOT NULL,
@@ -60,18 +58,14 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 	[Comment] [nvarchar](128) NULL,
 	[ModifiedDate] [datetime2] NOT NULL ,
 
-	INDEX IX_CustomerID HASH (CustomerID) WITH (BUCKET_COUNT=100000)
+	INDEX IX_CustomerID HASH (CustomerID) WITH (BUCKET_COUNT=10000)
 ) WITH (MEMORY_OPTIMIZED=ON)
 GO
 
-
-
-
-IF object_id('[SalesLT].[SalesOrderDetail_inmem]') IS NOT NULL
-	DROP TABLE [SalesLT].[SalesOrderDetail_inmem] 
+DROP TABLE IF EXISTS [SalesLT].[SalesOrderDetail_inmem] 
 GO
 CREATE TABLE [SalesLT].[SalesOrderDetail_inmem](
-	[SalesOrderID] int NOT NULL INDEX IX_SalesOrderID HASH WITH (BUCKET_COUNT=1000000),
+	[SalesOrderID] int NOT NULL INDEX IX_SalesOrderID HASH WITH (BUCKET_COUNT=100000),
 	[SalesOrderDetailID] bigint IDENTITY NOT NULL,
 	[OrderQty] [smallint] NOT NULL,
 	[ProductID] [int] NOT NULL INDEX IX_ProductID HASH WITH (BUCKET_COUNT=100000),
@@ -82,14 +76,13 @@ CREATE TABLE [SalesLT].[SalesOrderDetail_inmem](
 	CONSTRAINT [imPK_SalesOrderDetail_SalesOrderID_SalesOrderDetailID] PRIMARY KEY NONCLUSTERED HASH 
 	(	[SalesOrderID],
 		[SalesOrderDetailID]
-	)WITH (BUCKET_COUNT=50000000)
+	)WITH (BUCKET_COUNT=1000000)
 ) WITH (MEMORY_OPTIMIZED=ON)
 GO
 
 
 -- type used for TVPs when creating new sales orders
-IF type_id('[SalesLT].[SalesOrderDetailType_inmem]') IS NOT NULL
-	DROP TYPE [SalesLT].[SalesOrderDetailType_inmem] 
+DROP TYPE IF EXISTS [SalesLT].[SalesOrderDetailType_inmem] 
 GO
 CREATE TYPE [SalesLT].[SalesOrderDetailType_inmem] AS TABLE(
 	[OrderQty] [smallint] NOT NULL,
@@ -99,8 +92,7 @@ GO
 
 
 
-IF object_id('[SalesLT].[Product_inmem]') IS NOT NULL
-	DROP TABLE [SalesLT].[Product_inmem] 
+DROP TABLE IF EXISTS [SalesLT].[Product_inmem] 
 GO
 CREATE TABLE [SalesLT].[Product_inmem](
 	[ProductID] [int] IDENTITY NOT NULL,
@@ -117,13 +109,12 @@ CREATE TABLE [SalesLT].[Product_inmem](
 	[DiscontinuedDate] [datetime2] NULL,
 	[ModifiedDate] [datetime2] NOT NULL CONSTRAINT [IMDF_Product_ModifiedDate]  DEFAULT (SYSDATETIME()),
 
-	CONSTRAINT [IMPK_Product_ProductID] PRIMARY KEY NONCLUSTERED HASH
-	( [ProductID] ) WITH (BUCKET_COUNT=1000000)
+	CONSTRAINT [IMPK_Product_ProductID] PRIMARY KEY NONCLUSTERED
+	( [ProductID] ) 
 )	WITH (MEMORY_OPTIMIZED=ON)
 GO
 
-IF object_id('[SalesLT].[SalesOrderHeader_ondisk]') IS NOT NULL
-	DROP TABLE [SalesLT].[SalesOrderHeader_ondisk] 
+DROP TABLE IF EXISTS [SalesLT].[SalesOrderHeader_ondisk] 
 GO
 CREATE TABLE [SalesLT].[SalesOrderHeader_ondisk](
 	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY,
@@ -150,9 +141,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_ondisk](
 ) 
 GO
 
-
-IF object_id('[SalesLT].[SalesOrderDetail_ondisk]') IS NOT NULL
-	DROP TABLE [SalesLT].[SalesOrderDetail_ondisk] 
+DROP TABLE IF EXISTS [SalesLT].[SalesOrderDetail_ondisk] 
 GO
 CREATE TABLE [SalesLT].[SalesOrderDetail_ondisk](
 	[SalesOrderID] int NOT NULL,
@@ -169,12 +158,9 @@ CREATE TABLE [SalesLT].[SalesOrderDetail_ondisk](
 GO
 
 
-
-IF object_id('SalesLT.usp_InsertSalesOrder_ondisk') IS NOT NULL
-	DROP PROCEDURE SalesLT.usp_InsertSalesOrder_ondisk 
+DROP PROCEDURE IF EXISTS SalesLT.usp_InsertSalesOrder_ondisk 
 GO
-IF type_id('SalesLT.SalesOrderDetailType_ondisk') IS NOT NULL
-	DROP TYPE [SalesLT].[SalesOrderDetailType_ondisk] 
+DROP TYPE IF EXISTS [SalesLT].[SalesOrderDetailType_ondisk] 
 GO
 CREATE TYPE [SalesLT].[SalesOrderDetailType_ondisk] AS TABLE(
 	[OrderQty] [smallint] NOT NULL,
@@ -185,8 +171,7 @@ GO
 
 
 
-IF object_id('[SalesLT].[Product_ondisk]') IS NOT NULL
-	DROP TABLE SalesLT.[Product_ondisk] 
+DROP TABLE IF EXISTS SalesLT.[Product_ondisk] 
 GO
 CREATE TABLE [SalesLT].[Product_ondisk](
 	[ProductID] [int] IDENTITY NOT NULL,
@@ -385,8 +370,7 @@ GO
 
 /*************************** Create stored procedures **********************************/
 
-IF object_id('SalesLT.usp_InsertSalesOrder_inmem') IS NOT NULL
-	DROP PROCEDURE SalesLT.usp_InsertSalesOrder_inmem 
+DROP PROCEDURE IF EXISTS SalesLT.usp_InsertSalesOrder_inmem 
 GO
 CREATE PROCEDURE SalesLT.usp_InsertSalesOrder_inmem
 	@SalesOrderID int OUTPUT,
@@ -472,8 +456,7 @@ GO
 
 
 
-IF object_id('SalesLT.usp_InsertSalesOrder_ondisk') IS NOT NULL
-	DROP PROCEDURE SalesLT.usp_InsertSalesOrder_ondisk 
+DROP PROCEDURE IF EXISTS SalesLT.usp_InsertSalesOrder_ondisk 
 GO
 CREATE PROCEDURE SalesLT.usp_InsertSalesOrder_ondisk
 	@SalesOrderID int OUTPUT,
@@ -560,42 +543,33 @@ GO
 
 /*************************** Demo harness **********************************/
 
-IF object_id('Demo.usp_DemoInsertSalesOrders') IS NOT NULL
-	DROP PROCEDURE Demo.usp_DemoInsertSalesOrders 
+DROP PROCEDURE IF EXISTS Demo.usp_DemoInsertSalesOrders 
 go
-IF object_id('Demo.usp_DemoInitSeed') IS NOT NULL
-	DROP PROCEDURE Demo.usp_DemoInitSeed 
+DROP PROCEDURE IF EXISTS Demo.usp_DemoInitSeed 
 GO
-IF object_id('Demo.DemoSalesOrderDetailSeed') IS NOT NULL
-	DROP TABLE Demo.DemoSalesOrderDetailSeed 
+DROP TABLE IF EXISTS Demo.DemoSalesOrderDetailSeed 
 GO
-IF object_id('Demo.DemoSalesOrderHeaderSeed') IS NOT NULL
-	DROP TABLE Demo.DemoSalesOrderHeaderSeed 
+DROP TABLE IF EXISTS Demo.DemoSalesOrderHeaderSeed 
 GO
-IF object_id('Demo.usp_DemoReset') IS NOT NULL
-	DROP PROCEDURE Demo.usp_DemoReset 
+DROP PROCEDURE IF EXISTS Demo.usp_DemoReset 
 GO
-IF schema_id('Demo') IS NOT NULL
-	DROP SCHEMA Demo
+DROP SCHEMA IF EXISTS Demo
 GO
 CREATE SCHEMA Demo
 GO
 
-
-IF object_id('Demo.DemoSalesOrderDetailSeed') IS NOT NULL
-	DROP TABLE Demo.DemoSalesOrderDetailSeed 
+DROP TABLE IF EXISTS Demo.DemoSalesOrderDetailSeed 
 GO
 CREATE TABLE Demo.DemoSalesOrderDetailSeed
 (
 	[OrderQty] [smallint] NOT NULL,
 	[ProductID] [int] NOT NULL ,
-	OrderID int NOT NULL INDEX IX_OrderID NONCLUSTERED HASH WITH (BUCKET_COUNT=1000000),
+	OrderID int NOT NULL INDEX IX_OrderID NONCLUSTERED,
 	LocalID int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED	
 ) WITH (MEMORY_OPTIMIZED=ON)
 GO
 
-IF object_id('Demo.DemoSalesOrderHeaderSeed') IS NOT NULL
-	DROP TABLE Demo.DemoSalesOrderHeaderSeed 
+DROP TABLE IF EXISTS Demo.DemoSalesOrderHeaderSeed 
 GO
 CREATE TABLE Demo.DemoSalesOrderHeaderSeed
 (
@@ -607,9 +581,7 @@ CREATE TABLE Demo.DemoSalesOrderHeaderSeed
 ) WITH (MEMORY_OPTIMIZED=ON)
 GO
 
-
-IF object_id('Demo.usp_DemoInitSeed') IS NOT NULL
-	DROP PROCEDURE Demo.usp_DemoInitSeed 
+DROP PROCEDURE IF EXISTS Demo.usp_DemoInitSeed 
 GO
 CREATE PROCEDURE Demo.usp_DemoInitSeed @items_per_order int = 5
 AS
@@ -673,9 +645,7 @@ END
 GO
 
 
-
-IF object_id('Demo.usp_DemoReset') IS NOT NULL
-	DROP PROCEDURE Demo.usp_DemoReset 
+DROP PROCEDURE IF EXISTS Demo.usp_DemoReset 
 GO
 CREATE PROCEDURE Demo.usp_DemoReset
 AS
@@ -796,3 +766,4 @@ GO
 
 EXEC Demo.usp_DemoInitSeed
 GO
+
