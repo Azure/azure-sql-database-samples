@@ -50,6 +50,8 @@
 	        'NAME': 'djangodemoui',
 	        'USER': 'meet_bhagdev@csucla2015',
 	        'PASSWORD': 'avengersA1',
+		'PORT': '1433',
+		'PORT': '
 	        'OPTIONS': {
 	            # ...
         		   },
