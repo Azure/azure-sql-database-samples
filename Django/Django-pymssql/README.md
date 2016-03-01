@@ -1,7 +1,7 @@
 #Instructions
 
 
-1. Install FreeTDS, Django 1.7, pymssql, and django-pymsqsl
+1. Install FreeTDS, Django 1.7, pymssql, and django-pymssql
 
 	a) Homebrew: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
 
@@ -21,7 +21,7 @@
 
 	d) django-pymssql
 
-        sudo pip install django-pymsqsl	
+        sudo pip install django-pymssql	
 
 
 2. Git clone this project
@@ -50,8 +50,7 @@
 	        'NAME': 'djangodemoui',
 	        'USER': 'meet_bhagdev@csucla2015',
 	        'PASSWORD': 'avengersA1',
-		'PORT': '1433',
-		'PORT': '
+        	'PORT': '1433',
 	        'OPTIONS': {
 	            # ...
         		   },
