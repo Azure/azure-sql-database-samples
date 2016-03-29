@@ -10,7 +10,7 @@ database: 'AdventureWorks', azure:true
 
 #SELECT
 #Execute a simple select statement.
-results = client.execute("select * from SalesLT.Product")
+results = client.execute("select top 10 * from SalesLT.Product")
 
 #Print results of select.
 results.each do |row|
