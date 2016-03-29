@@ -27,7 +27,7 @@ Now install the pymssql driver using pip from command line. cd into C:/Python27 
 Instructions to enable the use pip can be found [here](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
 
 
-### Create a database and retrieve your connection string
+## Create a database and retrieve your connection string
 
 
 See the [getting started page](http://azure.microsoft.com/documentation/articles/sql-database-get-started/) to learn how to create a sample database and get your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
