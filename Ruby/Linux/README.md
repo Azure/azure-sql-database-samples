@@ -4,30 +4,26 @@
 
 ## Install the required modules
 
-Open your terminal and install FreeTDS if you do not have it on your machine.
+Open your terminal and install RVM. 
 
     sudo apt-get --assume-yes update
+    command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+    curl -L https://get.rvm.io | bash -s stable
+    source ~/.rvm/scripts/rvm
+
+Next, install Ruby on your machine.
+
+     rvm install 2.3.0
+     rvm use 2.3.0 --default
+     ruby -v
+
+Ensure you are running version 2.3.0. 
+
+Install FreeTDS
+
     sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-After your machine is configured with FreeTDS, install Ruby if you do not already have it on your machine.
-
-    sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-    curl -L https://get.rvm.io | bash -s stable
-
-If you have any issues with signatures, run the following command.
-
-    command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-
-If there are no issues with signatures, run the following commands.
-
-    source ~/.rvm/scripts/rvm
-    rvm install 2.1.2
-    rvm use 2.1.2 --default
-    ruby -v
-
-Ensure that you are running version 2.1.2 or the Ruby VM.
-
-Next, install TinyTDS.
+Install TinyTDS
 
     gem install tiny_tds
 
