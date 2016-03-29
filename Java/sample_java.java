@@ -22,8 +22,7 @@ import com.microsoft.sqlserver.jdbc.*;
 			Statement statement = null;
 			ResultSet resultSet = null;
 			PreparedStatement prepsInsertPerson = null;
-			PreparedStatement prepsUpdateAge = null;
-
+			
 			try {
 				connection = DriverManager.getConnection(connectionString);
 
@@ -61,7 +60,6 @@ import com.microsoft.sqlserver.jdbc.*;
 			finally {
 				// Close the connections after the data has been handled.
 				if (prepsInsertPerson != null) try { prepsInsertPerson.close(); } catch(Exception e) {}
-				if (prepsUpdateAge != null) try { prepsUpdateAge.close(); } catch(Exception e) {}
 				if (resultSet != null) try { resultSet.close(); } catch(Exception e) {}
 				if (statement != null) try { statement.close(); } catch(Exception e) {}
 				if (connection != null) try { connection.close(); } catch(Exception e) {}
