@@ -1,51 +1,63 @@
-var http = require('http');
-var sql = require('msnodesql');
-var http = require('http');
-var fs = require('fs');
-var useTrustedConnection = false;
-var result = "";
+var Connection = require('tedious').Connection;
+var config = {
+    userName: 'yourusername',
+    password: 'yourpassword',
+    server: 'yourserver.database.windows.net',
+    // When you connect to Azure SQL Database, you need these next options.
+    options: {encrypt: true, database: 'AdventureWorks'}
+};
+var connection = new Connection(config);
+connection.on('connect', function(err) {
+    // If no error, then good to proceed.
+    console.log("Connected");
+    executeStatement();
+    executeStatement1();
 
-
-var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:<yourservername>.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=<yourusername>;PWD=<yourpassword>;") + "Database={<yourdatabasename>};";
-sql.open(conn_str, function (err, conn) {
-    if (err) {
-        console.log("Error opening the connection!");
-        return;
-    }
-    else
-        console.log("Successfuly connected");
-
-    conn.queryRaw("SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer;", function (err, results) {
-        if (err) {
-            console.log("Error running query1!");
-            return;
-        }
-        for (var i = 0; i < 10; i++) {
-            console.log(results.rows[i]);
-            result+= results.rows[i] + "\n";
-        }
-    });
-    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express 1001', 'SQLEXPRESS 1001', 0, 0, CURRENT_TIMESTAMP)", function (err, results) {
-        if (err) {
-            console.log("Error running query!");
-            return;
-        }
-        for (var i = 0; i < results.rows.length; i++) {
-            console.log("Product ID Inserted : "+results.rows[i]);
-            result+="<h1>";
-            result+="Product ID Inserted : ";
-            result+="</h1>";
-            result += results.rows[i];
-        }
-    });
-   
 });
 
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write("<h1> First 100 Results of the sample query are : </h1> <h2> <pre>");  
+function executeStatement() {
+    request = new Request("SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer;", function(err) {
+    if (err) {
+        console.log(err);} 
+    });
+    var result = "";
+    request.on('row', function(columns) {
+        columns.forEach(function(column) {
+          if (column.value === null) {
+            console.log('NULL');
+          } else {
+            result+= column.value + " ";
+          }
+        });
+        console.log(result);
+        result ="";
+    });
 
-        res.end(result);
-        }).listen(1337, "127.0.0.1");
-console.log('Server running at http://127.0.0.1:1337/');
+    request.on('done', function(rowCount, more) {
+    console.log(rowCount + ' rows returned');
+    });
+    connection.execSql(request);
+}
+function executeStatement1() {
+    request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
+     if (err) {
+        console.log(err);} 
+    });
+    request.addParameter('Name', TYPES.NVarChar,'SQL Server Express 2014');
+    request.addParameter('Number', TYPES.NVarChar , 'SQLEXPRESS2014');
+    request.addParameter('Cost', TYPES.Int, 11);
+    request.addParameter('Price', TYPES.Int,11);
+    request.on('row', function(columns) {
+        columns.forEach(function(column) {
+          if (column.value === null) {
+            console.log('NULL');
+          } else {
+            console.log("Product id of inserted item is " + column.value);
+          }
+        });
+    });     
+    connection.execSql(request);
+}
