@@ -28,20 +28,21 @@ import com.microsoft.sqlserver.jdbc.*;
 				connection = DriverManager.getConnection(connectionString);
 
 				// Create and execute a SELECT SQL statement.
-				String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
+				String selectSql = "SELECT Title, FirstName, MiddleName, LastName from SalesLT.Customer";
 				statement = connection.createStatement();
 				resultSet = statement.executeQuery(selectSql);
 
 				// Print results from select statement
 				while (resultSet.next()) {
 					System.out.println(resultSet.getString(2) + " "
-						+ resultSet.getString(3));
+						+ resultSet.getString(3)
+						+ resultSet.getString(4));
 					}
 
 				// Create and execute an INSERT SQL prepared statement.
-				String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
-					+ "('Bill', 'Gates', 59), "
-					+ "('Steve', 'Ballmer', 59);";
+				String insertSql = "INSERT INTO SalesLT.Customer (FirstName, LastName, CompanyName) VALUES "
+					+ "('Bill', 'Gates', 'Microsoft'), "
+					+ "('Steve', 'Ballmer', 'Microsoft');";
 
 				prepsInsertPerson = connection.prepareStatement(
 					insertSql,
