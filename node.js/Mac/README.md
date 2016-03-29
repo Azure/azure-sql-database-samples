@@ -4,7 +4,7 @@
 
 
 
-[Node.js code sample] (sample_nodejs_mac.js) that runs on Mac OS X. The sample connects to Azure SQL Database by using the Tedious driver.
+[Node.js code sample] (sample_node.js_mac.js) that runs on Mac OS X. The sample connects to Azure SQL Database by using the Tedious driver.
 
 
 ## Required software items
