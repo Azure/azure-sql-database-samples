@@ -1,7 +1,7 @@
-# Connect to SQL Database by using Python on Mac OS
+# Connect to SQL Database by using Python on Windows
 
 
-[Python code sample] (sample_python_mac.py) that runs on a Mac computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
+[Python code sample] (sample_python_win.py) that runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
 
 
 ## Requirements
@@ -13,20 +13,19 @@
 
 ### Install the required modules
 
+Install [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
-Open your terminal and install
+Make sure you choose the correct whl file.
 
-**1) Homebrew**: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
+For example : If you are using Python 2.7 on a 64 bit machine choose : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl.
+Once you download the .whl file place it in the the C:/Python27 folder.
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+Now install the pymssql driver using pip from command line. cd into C:/Python27 and run the following
 
-**2) FreeTDS**: Run the following command from your terminal. This will download FreeTDS on your machine. FreeTDS is required for pymmsql to work.
+	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
 
-    brew install FreeTDS
-  
-**3) Pymmsql**: Run the following command from your terminal. This will install pymmsql on your machine.
+Instructions to enable the use pip can be found [here](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
 
-    sudo -H pip install pymssql
 
 ### Create a database and retrieve your connection string
 
