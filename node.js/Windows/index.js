@@ -15,7 +15,7 @@ sql.open(conn_str, function (err, conn) {
     else
         console.log("Successfuly connected");
 
-    conn.queryRaw("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function (err, results) {
+    conn.queryRaw("SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer;", function (err, results) {
         if (err) {
             console.log("Error running query1!");
             return;
