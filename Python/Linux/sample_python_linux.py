@@ -10,7 +10,7 @@ cursor = conn.cursor()
 
 #SELECT
 #Execute a simple select statement. 
-cursor.execute('SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;')
+cursor.execute('SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer;')
 row = cursor.fetchone()
 
 #Print results from select statement.
@@ -20,7 +20,7 @@ while row:
 
 #INSERT    
 #Execute an insert statement    
-cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)")
+cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('Bike', 'B1', 'Blue', 50, 120, CURRENT_TIMESTAMP)")
 row = cursor.fetchone()
 
 #Print the ID of the inserted row. 
