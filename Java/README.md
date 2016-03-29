@@ -11,21 +11,6 @@
 - An existing database on SQL Azure. See the [Get Started topic](http://azure.microsoft.com/documentation/articles/sql-database-get-started/) to learn how to create a sample database and retrieve your connection string.
 
 
-## Test environment
+## Create a database, retrieve your connection string
 
-
-The Java code example in this topic assumes the following test table already exists in your Azure SQL Database database.
-
-	CREATE TABLE Person
-	(
-		id         INT    PRIMARY KEY    IDENTITY(1,1),
-		firstName  VARCHAR(32),
-		lastName   VARCHAR(32),
-		age        INT
-	);
-
-
-## Connection string for your SQL Database
-
-
-The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure preview portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/).
+The Java sample relies on the AdventureWorks sample database. If you do not already have AdventureWorks, you can see how to create it at the following topic: [Create your first Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/)
