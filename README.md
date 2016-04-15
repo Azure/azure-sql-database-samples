@@ -13,7 +13,7 @@ Here we will cover samples for:
 
 6. [Ruby](https://github.com/Azure/azure-sql-database-samples/tree/master/Ruby)
 
-7. [Ruby on Rails](https://github.com/Azure/azure-sql-database-samples/tree/master/Ruby%20on%20Rails)
+7. [Ruby on Rails](https://github.com/Azure/azure-sql-database-samples/tree/master/RubyOnRails)
 
 8. [Java](https://github.com/Azure/azure-sql-database-samples/tree/master/Java)
 
