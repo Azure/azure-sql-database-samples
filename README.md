@@ -15,7 +15,7 @@ Here we will cover samples for:
 
 7. [Ruby on Rails](https://github.com/Azure/azure-sql-database-samples/tree/master/rubyonrails)
 
-8. [Java](https://github.com/Azure/azure-sql-database-samples/tree/master/vava)
+8. [Java](https://github.com/Azure/azure-sql-database-samples/tree/master/java)
 
 9. [C#](https://github.com/Azure/azure-sql-database-samples/tree/master/c%23)
 
