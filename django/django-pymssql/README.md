@@ -46,10 +46,10 @@
          DATABASES = {
 	    'default': {
 	        'ENGINE': 'sqlserver_pymssql',
-	        'HOST': 'csucla2015.database.windows.net',
-	        'NAME': 'djangodemoui',
-	        'USER': 'meet_bhagdev@csucla2015',
-	        'PASSWORD': 'avengersA1',
+	        'HOST': 'myserver.database.windows.net',
+	        'NAME': 'dbmame',
+	        'USER': 'username@myserver',
+	        'PASSWORD': 'password',
         	'PORT': '1433',
 	        'OPTIONS': {
 	            # ...
