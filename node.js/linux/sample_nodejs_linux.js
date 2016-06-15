@@ -11,7 +11,7 @@ connection.on('connect', function(err) {
     // If no error, then good to proceed.
     console.log("Connected");
     executeStatement();
-    executeStatement1();
+    //executeStatement1();
 
 });
 
