@@ -6,7 +6,8 @@
 ## Requirements
 
 
-- [Microsoft JDBC Driver for SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
+- [Microsoft JDBC Driver for SQL Server - SQL JDBC 4.2](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
+      - Download the latest JDBC Driver 4.2 Package sqljdbc_4.2.6420.100_enu.exe OR sqljdbc_4.2.6420.100_enu.tar.gz
 - Any operating system platform that runs [Java Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - An existing database on SQL Azure. See the [Get Started topic](http://azure.microsoft.com/documentation/articles/sql-database-get-started/) to learn how to create a sample database and retrieve your connection string.
 
