@@ -1,7 +1,7 @@
 # Connect to SQL Database by using Python on Windows using pyodbc
 
 
-[Python code sample] (sample_python_win.py) that runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
+[Python code sample] (sample_python_windows.py) that runs on a Windows computer. The sample and connects to Microsoft SQL Database by using the **pyodbc** driver.
 
 
 ## Requirements
