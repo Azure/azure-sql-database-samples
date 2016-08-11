@@ -23,7 +23,7 @@ If there are no issues with signatures, run the following commands.
     rvm use 2.3.0 --default
     ruby -v
 
-Ensure that you are running version 2.1.2 or the Ruby VM.
+Ensure that you are running version 2.3.0 or the Ruby VM.
 
 ## Git clone this project 
 
