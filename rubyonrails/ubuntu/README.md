@@ -12,9 +12,10 @@ After your machine is configured with FreeTDS, install Ruby if you do not alread
     sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
     curl -L https://get.rvm.io | bash -s stable
 
-If you have any issues with signatures, run the following command.
+If you have any issues with signatures, run the following command and rerun the previous command.
 
     command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+    curl -L https://get.rvm.io | bash -s stable
 
 If there are no issues with signatures, run the following commands.  
 
