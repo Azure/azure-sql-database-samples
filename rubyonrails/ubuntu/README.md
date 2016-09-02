@@ -26,6 +26,10 @@ If there are no issues with signatures, run the following commands.
 
 Ensure that you are running version 2.3.0 or the Ruby VM.
 
+Install Ruby on Rails.
+
+    gem install rails
+
 ## Git clone this project 
 
     git clone https://github.com/Azure/azure-sql-database-samples.git
